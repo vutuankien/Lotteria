@@ -1,0 +1,20 @@
+hr {
+    width: 60px;
+    height: 3px;
+    background-color: red;
+}
+
+button {
+    outline: none;
+    border: none;
+    padding: 5px 15px;
+    background-color: #fff;
+    color: #ec2c17;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 25px;
+}
+
+h1{
+    color: #f5c5b1;
+}

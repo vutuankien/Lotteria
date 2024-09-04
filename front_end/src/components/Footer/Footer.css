@@ -1,0 +1,11 @@
+h3,p{
+    color: rgb(0, 0, 0);
+}
+
+input{
+    padding: 5px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 50%;
+    /* border-right: none; */
+}

@@ -1,0 +1,13 @@
+.row-item{
+    background-color:#FFEAE3;
+    cursor: pointer;
+}
+.row-item:hover{
+    background-color: #e34a4a;
+}
+.row-item:hover p{
+    color: white;
+}
+p{
+    color: rgb(219, 70, 119);
+}

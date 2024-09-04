@@ -1,0 +1,172 @@
+{
+    "Foods":[
+        {
+            "id":1,
+            "name":"Gà rán sét",
+            "price":87.000,
+            "oldPrice":114.000,
+            "image":"../src/assets/chickenset_fried_1_.png",
+            "category":"BestSeller"
+        },
+        {
+            "id":2,
+            "name":"Gà rán HS phần",
+            "price":95,
+            "oldPrice":124,
+            "image":"../src/assets/chickenset_h_s_1_.png",
+            "category":"BestSeller"
+        },
+        {
+            "id":3,
+            "name":"Combo Burger Tôm",
+            "price":82,
+            "oldPrice":91,
+            "image":"../src/assets/combo_shrimp_6.png",
+            "category":"BestSeller"
+        },
+        {
+            "id":4,
+            "name":"Combo Burger Bulgogi",
+            "price":82,
+            "oldPrice":91,
+            "image":"../src/assets/combo_bulgogi_6.png",
+            "category":"BestSeller"
+        },
+        {
+            "id":5,
+            "name":"Loy set",
+            "price":145,
+            "oldPrice":177,
+            "image":"../src/assets/pack_loy_set_2_.png",
+            "category":"BestSeller"
+        },
+        {
+            "id":5,
+            "name":"Lody set",
+            "price":145,
+            "oldPrice":169,
+            "image":"../src/assets/pack_lody_set_4.png",
+            "category":"BestSeller"
+        },
+        {
+            "id":6,
+            "name":"Lony set",
+            "price":195,
+            "oldPrice":237,
+            "image":"../src/assets/pack_lony_set_2_.png",
+            "category":"BestSeller"
+        },
+        {
+            "id":7,
+            "name":"Loking set",
+            "price":220,
+            "oldPrice":237,
+            "image":"../src/assets/pack_loking_set_2_.png",
+            "category":"BestSeller"
+        },
+        {
+            "id":8,
+            "name":"L4 Set",
+            "price":280,
+            "oldPrice":337,
+            "image":"../src/assets/pack_lody_set_4.png",
+            "category":"Hamburger"
+        },
+        {
+            "id":9,
+            "name":"Milkis",
+            "price":22,
+            "oldPrice":25,
+            "image":"../src/assets/drink_milkis.png",
+            "category":"drink"
+        },
+        {
+            "id":10,
+            "name":"Matcha Latte",
+            "price":30,
+            "oldPrice":355,
+            "image":"../src/assets/l_coffee_matcha_latte-16.png",
+            "category":"drink"
+        },
+        {
+            "id":11,
+            "name":"Pepsi",
+            "price":14,
+            "oldPrice":19,
+            "image":"../src/assets/drink_pepsi_m_l_.png",
+            "category":"drink"
+        },
+        {
+            "id":12,
+            "name":"Pepsi Zero",
+            "price":14,
+            "oldPrice":19,
+            "image":"../src/assets/drink_pepsi_zero_m_l__2.png",
+            "category":"drink"
+        },
+        {
+            "id":13,
+            "name":"7 Up",
+            "price":14,
+            "oldPrice":20,
+            "image":"../src/assets/drink_7up_m_l_.png",
+            "category":"drink"
+        },
+        {
+            "id":14,
+            "name":"Mirinda",
+            "price":14,
+            "oldPrice":20,
+            "image":"../src/assets/drink_mirinda_m_l__4.png",
+            "category":"drink"
+        },
+        {
+            "id":15,
+            "name":"Trà sữa trân châu caramel",
+            "price":30,
+            "oldPrice":35,
+            "image":"../src/assets/l_coffee_caramel_pearls_milk_tea_1_.png",
+            "category":"drink"
+        },
+        {
+            "id":16,
+            "name":"Trà Kiwi chanh dây",
+            "price":35,
+            "oldPrice":40,
+            "image":"../src/assets/l_coffee_tra_kiwwi_chanh_da_y_1_.png",
+            "category":"drink"
+        },
+        {
+            "id":17,
+            "name":"Trà vải",
+            "price":35,
+            "oldPrice":40,
+            "image":"../src/assets/l_coffee_tr_v_i_1.png",
+            "category":"drink"
+        },
+        {
+            "id":18,
+            "name":"Trà dâu",
+            "price":35,
+            "oldPrice":40,
+            "image":"../src/assets/l_coffee_tr_l_i_d_u_t_y.png",
+            "category":"drink"
+        },
+        {
+            "id":19,
+            "name":"Cơm",
+            "price":7,
+            "oldPrice":10,
+            "image":"../src/assets/co",
+            "category":"dessert"
+        },
+        {
+            "id":20,
+            "name":"Bánh trái cây",
+            "price":15,
+            "oldPrice":20,
+            "image":"../src/assets/banh_trai_cay_1_.png",
+            "category":"dessert"
+        }
+    ]
+}
