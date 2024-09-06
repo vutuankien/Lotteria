@@ -1,172 +1,401 @@
 {
-    "Foods":[
+    "Foods": [
         {
-            "id":1,
-            "name":"Gà rán sét",
-            "price":87.000,
-            "oldPrice":114.000,
-            "image":"../src/assets/chickenset_fried_1_.png",
-            "category":"BestSeller"
+            "id": 1,
+            "name": "Gà rán sét",
+            "price": 87.000,
+            "oldPrice": 114.000,
+            "image": "../src/assets/chickenset_fried_1_.png",
+            "category": "BestSeller"
         },
         {
-            "id":2,
-            "name":"Gà rán HS phần",
-            "price":95,
-            "oldPrice":124,
-            "image":"../src/assets/chickenset_h_s_1_.png",
-            "category":"BestSeller"
+            "id": 2,
+            "name": "Gà rán HS phần",
+            "price": 95,
+            "oldPrice": 124,
+            "image": "../src/assets/chickenset_h_s_1_.png",
+            "category": "BestSeller"
         },
         {
-            "id":3,
-            "name":"Combo Burger Tôm",
-            "price":82,
-            "oldPrice":91,
-            "image":"../src/assets/combo_shrimp_6.png",
-            "category":"BestSeller"
+            "id": 3,
+            "name": "Combo Burger Tôm",
+            "price": 82,
+            "oldPrice": 91,
+            "image": "../src/assets/combo_shrimp_6.png",
+            "category": "BestSeller"
         },
         {
-            "id":4,
-            "name":"Combo Burger Bulgogi",
-            "price":82,
-            "oldPrice":91,
-            "image":"../src/assets/combo_bulgogi_6.png",
-            "category":"BestSeller"
+            "id": 4,
+            "name": "Combo Burger Bulgogi",
+            "price": 82,
+            "oldPrice": 91,
+            "image": "../src/assets/combo_bulgogi_6.png",
+            "category": "BestSeller"
         },
         {
-            "id":5,
-            "name":"Loy set",
-            "price":145,
-            "oldPrice":177,
-            "image":"../src/assets/pack_loy_set_2_.png",
-            "category":"BestSeller"
+            "id": 5,
+            "name": "Loy set",
+            "price": 145,
+            "oldPrice": 177,
+            "image": "../src/assets/pack_loy_set_2_.png",
+            "category": "BestSeller",
+            "subCategory":"set"
         },
         {
-            "id":5,
-            "name":"Lody set",
-            "price":145,
-            "oldPrice":169,
-            "image":"../src/assets/pack_lody_set_4.png",
-            "category":"BestSeller"
+            "id": 5,
+            "name": "Lody set",
+            "price": 145,
+            "oldPrice": 169,
+            "image": "../src/assets/pack_lody_set_4.png",
+            "category": "BestSeller",
+            "subCategory":"set"
         },
         {
-            "id":6,
-            "name":"Lony set",
-            "price":195,
-            "oldPrice":237,
-            "image":"../src/assets/pack_lony_set_2_.png",
-            "category":"BestSeller"
+            "id": 6,
+            "name": "Lony set",
+            "price": 195,
+            "oldPrice": 237,
+            "image": "../src/assets/pack_lony_set_2_.png",
+            "category": "BestSeller",
+            "subCategory":"set"
         },
         {
-            "id":7,
-            "name":"Loking set",
-            "price":220,
-            "oldPrice":237,
-            "image":"../src/assets/pack_loking_set_2_.png",
-            "category":"BestSeller"
+            "id": 7,
+            "name": "Loking set",
+            "price": 220,
+            "oldPrice": 237,
+            "image": "../src/assets/pack_loking_set_2_.png",
+            "category": "BestSeller",
+            "subCategory":"set"
         },
         {
-            "id":8,
-            "name":"L4 Set",
-            "price":280,
-            "oldPrice":337,
-            "image":"../src/assets/pack_lody_set_4.png",
-            "category":"Hamburger"
+            "id": 8,
+            "name": "L4 Set",
+            "price": 280,
+            "oldPrice": 337,
+            "image": "../src/assets/pack_lody_set_4.png",
+            "category": "BestSeller",
+            "subCategory":"set"
         },
         {
-            "id":9,
-            "name":"Milkis",
-            "price":22,
-            "oldPrice":25,
-            "image":"../src/assets/drink_milkis.png",
-            "category":"drink"
+            "id": 9,
+            "name": "Milkis",
+            "price": 22,
+            "oldPrice": 25,
+            "image": "../src/assets/drink_milkis.png",
+            "category": "drink"
         },
         {
-            "id":10,
-            "name":"Matcha Latte",
-            "price":30,
-            "oldPrice":355,
-            "image":"../src/assets/l_coffee_matcha_latte-16.png",
-            "category":"drink"
+            "id": 10,
+            "name": "Matcha Latte",
+            "price": 30,
+            "oldPrice": 355,
+            "image": "../src/assets/l_coffee_matcha_latte-16.png",
+            "category": "drink"
         },
         {
-            "id":11,
-            "name":"Pepsi",
-            "price":14,
-            "oldPrice":19,
-            "image":"../src/assets/drink_pepsi_m_l_.png",
-            "category":"drink"
+            "id": 11,
+            "name": "Pepsi",
+            "price": 14,
+            "oldPrice": 19,
+            "image": "../src/assets/drink_pepsi_m_l_.png",
+            "category": "drink"
         },
         {
-            "id":12,
-            "name":"Pepsi Zero",
-            "price":14,
-            "oldPrice":19,
-            "image":"../src/assets/drink_pepsi_zero_m_l__2.png",
-            "category":"drink"
+            "id": 12,
+            "name": "Pepsi Zero",
+            "price": 14,
+            "oldPrice": 19,
+            "image": "../src/assets/drink_pepsi_zero_m_l__2.png",
+            "category": "drink"
         },
         {
-            "id":13,
-            "name":"7 Up",
-            "price":14,
-            "oldPrice":20,
-            "image":"../src/assets/drink_7up_m_l_.png",
-            "category":"drink"
+            "id": 13,
+            "name": "7 Up",
+            "price": 14,
+            "oldPrice": 20,
+            "image": "../src/assets/drink_7up_m_l_.png",
+            "category": "drink"
         },
         {
-            "id":14,
-            "name":"Mirinda",
-            "price":14,
-            "oldPrice":20,
-            "image":"../src/assets/drink_mirinda_m_l__4.png",
-            "category":"drink"
+            "id": 14,
+            "name": "Mirinda",
+            "price": 14,
+            "oldPrice": 20,
+            "image": "../src/assets/drink_mirinda_m_l__4.png",
+            "category": "drink"
         },
         {
-            "id":15,
-            "name":"Trà sữa trân châu caramel",
-            "price":30,
-            "oldPrice":35,
-            "image":"../src/assets/l_coffee_caramel_pearls_milk_tea_1_.png",
-            "category":"drink"
+            "id": 15,
+            "name": "Trà sữa trân châu caramel",
+            "price": 30,
+            "oldPrice": 35,
+            "image": "../src/assets/l_coffee_caramel_pearls_milk_tea_1_.png",
+            "category": "drink"
         },
         {
-            "id":16,
-            "name":"Trà Kiwi chanh dây",
-            "price":35,
-            "oldPrice":40,
-            "image":"../src/assets/l_coffee_tra_kiwwi_chanh_da_y_1_.png",
-            "category":"drink"
+            "id": 16,
+            "name": "Trà Kiwi chanh dây",
+            "price": 35,
+            "oldPrice": 40,
+            "image": "../src/assets/l_coffee_tra_kiwwi_chanh_da_y_1_.png",
+            "category": "drink"
         },
         {
-            "id":17,
-            "name":"Trà vải",
-            "price":35,
-            "oldPrice":40,
-            "image":"../src/assets/l_coffee_tr_v_i_1.png",
-            "category":"drink"
+            "id": 17,
+            "name": "Trà vải",
+            "price": 35,
+            "oldPrice": 40,
+            "image": "../src/assets/l_coffee_tr_v_i_1.png",
+            "category": "drink"
         },
         {
-            "id":18,
-            "name":"Trà dâu",
-            "price":35,
-            "oldPrice":40,
-            "image":"../src/assets/l_coffee_tr_l_i_d_u_t_y.png",
-            "category":"drink"
+            "id": 18,
+            "name": "Trà dâu",
+            "price": 35,
+            "oldPrice": 40,
+            "image": "../src/assets/l_coffee_tr_l_i_d_u_t_y.png",
+            "category": "drink"
         },
         {
-            "id":19,
-            "name":"Cơm",
-            "price":7,
-            "oldPrice":10,
-            "image":"../src/assets/co",
-            "category":"dessert"
+            "id": 19,
+            "name": "Combo 1",
+            "price": 59,
+            "oldPrice": 78,
+            "image": "../src/assets/menu_menu_1_2_.jpg",
+            "category": "discount"
         },
         {
-            "id":20,
-            "name":"Bánh trái cây",
-            "price":15,
-            "oldPrice":20,
-            "image":"../src/assets/banh_trai_cay_1_.png",
-            "category":"dessert"
+            "id": 20,
+            "name": "Combo 2",
+            "price": 129,
+            "oldPrice": 170,
+            "image": "../src/assets/combo_2.jpg",
+            "category": "discount"
+        },
+        {
+            "id": 21,
+            "name": "Deal 58k",
+            "price": 10,
+            "oldPrice": 15,
+            "image": "../src/assets/menu_menu_58kkk_1_.jpg",
+            "category": "discount"
+        },
+        {
+            "id": 22,
+            "name": "Gà Nuggets 3 miếng",
+            "price": 27,
+            "oldPrice": 40,
+            "image": "../src/assets/dessert_chicken_nugget_3_5_mi_ng_.png",
+            "category": "fastFood"
+        },
+        {
+            "id": 23,
+            "name": "Gà Nuggets 5 miếng",
+            "price": 40,
+            "oldPrice": 45,
+            "image": "../src/assets/dessert_chicken_nugget_3_5_mi_ng__1.png",
+            "category": "fastFood"
+        },
+        {
+            "id": 24,
+            "name": "Màn Thầu Chiên",
+            "price": 22,
+            "oldPrice": 25,
+            "image": "../src/assets/dessert_fried_mantou.png",
+            "category": "fastFood"
+        },
+        {
+            "id": 25,
+            "name": "Cơm Gà Viên",
+            "price": 46,
+            "oldPrice": 55,
+            "image": "../src/assets/lr0002-online_5.png",
+            "category": "rice"
+        },
+        {
+            "id": 25,
+            "name": "Cơm Gà Sốt Đậu",
+            "price": 46,
+            "oldPrice": 55,
+            "image": "../src/assets/lr0007-online_5.png",
+            "category": "rice"
+        },
+        {
+            "id": 25,
+            "name": "Cơm Gà Sốt HS",
+            "price": 46,
+            "oldPrice": 55,
+            "image": "../src/assets/lr0087-online_5.png",
+            "category": "rice"
+        },
+        {
+            "id": 26,
+            "name": "Value Burger Bulgogi",
+            "price": 88,
+            "oldPrice": 99,
+            "image": "../src/assets/value_bulgogi_4.png",
+            "category": "value"
+        },
+        {
+            "id": 27,
+            "name": "Value Burger Tôm",
+            "price": 88,
+            "oldPrice": 99,
+            "image": "../src/assets/value_shrimp_4.png",
+            "category": "value"
+        },
+        {
+            "id": 28,
+            "name": "Value Burger LChicken",
+            "price": 89,
+            "oldPrice": 102,
+            "image": "../src/assets/value_l-chicken_.png",
+            "category": "value"
+        },
+        {
+            "id": 29,
+            "name": "Value Burger Phô mai",
+            "price": 81,
+            "oldPrice": 97,
+            "image": "../src/assets/value_cheese_4.png",
+            "category": "value"
+        },
+        {
+            "id": 30,
+            "name": "Combo Burger Bulgogi",
+            "price": 82,
+            "oldPrice": 91,
+            "image": "../src/assets/combo_bulgogi_6.png",
+            "category": "combo"
+        },
+        {
+            "id": 31,
+            "name": "Combo Burger Tôm",
+            "price": 82,
+            "oldPrice": 91,
+            "image": "../src/assets/combo_shrimp_6.png",
+            "category": "combo"
+        },
+        {
+            "id": 32,
+            "name": "Gà Sốt K-Chicken Phần",
+            "price": 95,
+            "oldPrice": 124,
+            "image": "../src/assets/chickenset_k_chicken_1_.png",
+            "category": "chickenSet"
+        },
+        {
+            "id": 33,
+            "name": "Gà Rắc Tuyết Xanh Set",
+            "price": 89,
+            "oldPrice": 118,
+            "image": "../src/assets/chickenset_sprinkle.png",
+            "category": "chickenSet"
+        },
+        {
+            "id": 34,
+            "name": "Gà Rán Phần",
+            "price": 87,
+            "oldPrice": 114,
+            "image": "../src/assets/chickenset_fried_1_.png",
+            "category": "chickenSet"
+        },
+        {
+            "id": 35,
+            "name": "Gà rán HS phần",
+            "price": 95,
+            "oldPrice": 124,
+            "image": "../src/assets/chickenset_h_s_1_.png",
+            "category": "chickenSet"
+        },
+        {
+            "id": 36,
+            "name": "Gà Rắc Tuyết Xanh (1 Miếng)",
+            "price": 38,
+            "oldPrice": 45,
+            "image": "../src/assets/chicken_sprinkle_chicken_1_mie_ng_1_.png",
+            "category": "chicken"
+        },
+        {
+            "id": 37,
+            "name": "Gà Rắc Tuyết Xanh (3 Miếng)",
+            "price": 105,
+            "oldPrice": 114,
+            "image": "../src/assets/chicken_sprinkle_chicken_3-6_mie_ng_1_.png",
+            "category": "chicken"
+        },
+        {
+            "id": 38,
+            "name": "Gà Rắc Tuyết Xanh (6 Miếng)",
+            "price": 202,
+            "oldPrice": 228,
+            "image": "../src/assets/chicken_sprinkle_chicken_3-6_mie_ng_1__1.png",
+            "category": "chicken"
+        },
+        {
+            "id": 39,
+            "name": "Burger Bulgogi",
+            "price": 49,
+            "oldPrice": 55,
+            "image": "../src/assets/burger_bulgogi_4.png",
+            "category": "burger"
+        },
+        {
+            "id": 40,
+            "name": "Burger Tôm",
+            "price": 49,
+            "oldPrice": 55,
+            "image": "../src/assets/burger_shrimp_1_.png",
+            "category": "burger"
+        },
+        {
+            "id": 41,
+            "name": "Burger LChicken",
+            "price": 52,
+            "oldPrice": 60,
+            "image": "../src/assets/burger_l-chicken.png",
+            "category": "burger"
+        },
+        {
+            "id": 42,
+            "name": "Burger Phô mai",
+            "price": 47,
+            "oldPrice": 55,
+            "image": "../src/assets/burger_cheese_10.png",
+            "category": "burger"
+        },
+        {
+            "id": 43,
+            "name": "Burger Bò Teriyaki",
+            "price": 35,
+            "oldPrice": 45,
+            "image": "../src/assets/burger_beef_teriyaki.png",
+            "category": "burger"
+        },
+        {
+            "id": 44,
+            "name": "Burger Double Double",
+            "price": 45,
+            "oldPrice": 53,
+            "image": "../src/assets/burger_d-double.png",
+            "category": "burger"
+        },
+        {
+            "id": 45,
+            "name": "Burger Mozzarella",
+            "price": 88,
+            "oldPrice": 100,
+            "image": "../src/assets/burger_mozzarella.png",
+            "category": "burger"
+        },
+        {
+            "id": 46,
+            "name": "Burger Cá",
+            "price": 40,
+            "oldPrice": 48,
+            "image": "../src/assets/burger_fish_5.png",
+            "category": "burger"
         }
     ]
 }

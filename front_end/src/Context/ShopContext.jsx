@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 export const ShopContext = createContext()
 
 const ShopContextProvider = (props) => {
@@ -30,9 +30,8 @@ const ShopContextProvider = (props) => {
         navigate, currency, products,responsive
     }
     useEffect(() => {
-        fetch(foodApi)
-            .then(res => res.json())
-            .then(data => setProducts(data))
+        axios.get(foodApi)
+        .then(res => setProducts(res.data))
     }, [])
     return (
         <ShopContext.Provider value={value}>
