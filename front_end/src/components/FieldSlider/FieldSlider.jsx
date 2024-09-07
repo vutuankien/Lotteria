@@ -31,7 +31,7 @@ const FieldSlider = () => {
         <div className='mt-3'>
             <Carousel fade className='z-0' responsive={responsive}>
                 {cards.map((item, index) => (
-                    <Link to={`/${item.src}`} className='text-decoration-none text-black'>
+                    <Link to={`/${item.src}`} key={index} className='text-decoration-none text-black'>
                         <div key={index} className="px-2" onClick={() => handleClick(item.id)}
                         style={{
                             border:selected === item.id ? '3px solid red':'none',

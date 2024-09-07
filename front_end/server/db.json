@@ -397,5 +397,47 @@
             "image": "../src/assets/burger_fish_5.png",
             "category": "burger"
         }
+    ],
+    "Orders":[
+        {
+            "id": 1,
+            "name": "Gà rán sét",
+            "price": 87.000,
+            "image": "../src/assets/chickenset_fried_1_.png",
+            "category": "BestSeller",
+            "time":"2013-07-01T00:00:00",
+            "status":"Shipped",
+            "quantity":1
+        },
+        {
+            "id": 2,
+            "name": "Gà Rắc Tuyết Xanh Set",
+            "price": 89.000,
+            "image": "../src/assets/chickenset_sprinkle.png",
+            "category": "BestSeller",
+            "time":"2013-07-02T00:00:00",
+            "status":"Canceled",
+            "quantity":2
+        },
+        {
+            "id": 3,
+            "name": "Gà Rán Phần",
+            "price": 87.000,
+            "image": "../src/assets/chickenset_fried_1_.png",
+            "category": "BestSeller",
+            "time":"2013-07-03T00:00:00",
+            "status":"Shipped",
+            "quantity":3
+        },
+        {
+            "id": 4,
+            "name": "Gà Rắc Tuyết Xanh (1 Miếng)",
+            "price": 38.000,
+            "image": "../src/assets/chicken_sprinkle_chicken_1_mie_ng_1_.png",
+            "category": "BestSeller",
+            "time":"2013-07-04T00:00:00",
+            "status":"Shipped",
+            "quantity":4
+        }
     ]
 }

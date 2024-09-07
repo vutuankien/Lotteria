@@ -1,13 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-export const ShopContext = createContext()
+
+export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
     const navigate = useNavigate();
     const currency = '₫';
-    const foodApi = 'http://localhost:3000/Foods'
-    const [products, setProducts] = useState([])
+    const foodApi = 'http://localhost:3000/Foods';
+    const ordersAPI = 'http://localhost:3000/Orders'
+    const [products,setProducts] = useState([])
+    const [orders,setOrders] = useState([])
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -26,19 +29,35 @@ const ShopContextProvider = (props) => {
             items: 4
         }
     };
-    const value = {
-        navigate, currency, products,responsive
-    }
+
     useEffect(() => {
         axios.get(foodApi)
-        .then(res => setProducts(res.data))
-    }, [])
+            .then(response => {
+                // console.log(response.data); // Kiểm tra dữ liệu
+                setProducts(response.data);
+            })
+            .catch(error => console.error("Error fetching data:", error));
+    }, []);
+
+    useEffect(() => {
+        axios.get(ordersAPI)
+            .then(response => {
+                // console.log(response.data); // Kiểm tra dữ liệu
+                setOrders(response.data);
+            })
+            .catch(error => console.error("Error fetching data:", error));
+    }, []);
+    
+    
+
+    const value = {
+        navigate, currency, responsive,products,orders
+    };
     return (
         <ShopContext.Provider value={value}>
             {props.children}
         </ShopContext.Provider>
-    )
-
-}
+    );
+};
 
 export default ShopContextProvider;
