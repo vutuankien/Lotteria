@@ -4,7 +4,6 @@ import Home from "./pages/Home"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Orders from "./pages/Orders";
 import Discount from "./pages/Discount";
 import Store from "./pages/Store";
 import BestSeller from "./pages/BestSeller";
@@ -21,6 +20,7 @@ import Burger from "./pages/Burger";
 import Product from "./pages/Product";
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Cart from "./pages/Cart";
 function App() {
   return (
     <div style={{ width: '100%' }}>
@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/bestSeller" element={<BestSeller />} />
-        <Route path="/orders" element={<Orders />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/discount" element={<Discount />} />
         <Route path="/store" element={<Store />} />

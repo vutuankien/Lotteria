@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { assets } from '../../assets/assetss';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -6,11 +6,13 @@ import { NavLink, Link } from 'react-router-dom';
 import * as Icon from 'react-bootstrap-icons';
 import Navbar from 'react-bootstrap/Navbar';
 import './Navbar.css';
+import { ShopContext } from '../../Context/ShopContext';
 
 const NavBar = () => {
   const [visible, setVisible] = useState(false);
   const [activePage, setActivePage] = useState('');
   const [showSubMenu, setShowSubMenu] = useState(false);
+  const {navigate} = useContext(ShopContext)
 
   // Đóng menu khi nhấn bên ngoài
 
@@ -31,7 +33,7 @@ const NavBar = () => {
               <NavLink to='/bestSeller' onClick={() => handleClick('bestSeller')} className={`text-decoration-none fw-bold d-flex flex-column align-align-items-center ${activePage === 'bestSeller' ? 'text-danger underline' : 'text-black'}`}>
                 <p className='text-uppercase fs-5 px-2'>Best Seller</p>
               </NavLink>
-              <NavLink to='/orders' onClick={() => handleClick('orders')} className={`text-decoration-none fw-bold d-flex flex-column align-align-items-center ${activePage === 'orders' ? 'text-danger underline' : 'text-black'}`}>
+              <NavLink to='/set' onClick={() => handleClick('orders')} className={`text-decoration-none fw-bold d-flex flex-column align-align-items-center ${activePage === 'orders' ? 'text-danger underline' : 'text-black'}`}>
                 <p className='text-uppercase fs-5 px-2'>Đặt hàng</p>
               </NavLink>
               <NavLink to='/discount' onClick={() => handleClick('discount')} className={`text-decoration-none fw-bold d-flex flex-column align-align-items-center ${activePage === 'discount' ? 'text-danger underline' : 'text-black'}`}>
@@ -67,10 +69,10 @@ const NavBar = () => {
             <div className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
               <Icon.Bell></Icon.Bell>
             </div>
-            <div className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
+            <div onClick={() => navigate('/cart')} className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
               <Icon.Cart></Icon.Cart>
             </div>
-            <div className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
+            <div  className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
               <Icon.Chat></Icon.Chat>
             </div>
             <div className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle d-block d-sm-none' onClick={() => setVisible(!visible)} style={{ cursor: 'pointer' }}>

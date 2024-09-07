@@ -9,7 +9,7 @@ import Footer from '../components/Footer/Footer';
 import PolicyFooter from '../components/Policy_Footer/PolicyFooter';
 const Product = () => {
     const { productId } = useParams();
-    const { products, currency, navigate } = useContext(ShopContext);
+    const { products, currency, navigate,AddToCart } = useContext(ShopContext);
     const [productData, setProductData] = useState(false);
 
     const fetchProductData = async () => {
@@ -38,7 +38,7 @@ const Product = () => {
                         className="px-4 d-flex align-items-center rounded-5 py-2 gap-1 bg-light shadow-lg"><Icon.ArrowLeft /> Quay lại
                     </button>
                 </div>
-                <div style={{ width: '100%' }} className="d-flex flex-sm-row justify-content-around mt-5">
+                <div style={{ width: '100%' }} className="d-flex flex-sm-row flex-column  justify-content-around mt-5">
                     <div>
                         <img src={productData.image} width={'100%'} height={'400px'} alt="Product" />
                     </div>
@@ -61,7 +61,10 @@ const Product = () => {
                         <hr style={{ width: '100%', height: '1px', backgroundColor: '#000' }} />
                         <button
                             className="w-100 mt-3 px-4 py-2 rounded-5 text-white bg-danger"
-                            onClick={() => toast.info("Add Product Successfully")}
+                            onClick={() => {
+                                AddToCart(productData.id);
+                                toast.success("Add Product Successfully!")
+                            }}
                         >
                             Mua ngay
                         </button>

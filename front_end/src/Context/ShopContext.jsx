@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const ShopContext = createContext();
 
@@ -8,9 +9,11 @@ const ShopContextProvider = (props) => {
     const navigate = useNavigate();
     const currency = '₫';
     const foodApi = 'http://localhost:3000/Foods';
-    const ordersAPI = 'http://localhost:3000/Orders'
-    const [products,setProducts] = useState([])
-    const [orders,setOrders] = useState([])
+    const ordersAPI = 'http://localhost:3000/orders'
+    const [products, setProducts] = useState([]);
+    const [orders, setOrders] = useState([]);
+    const [cart, setCart] = useState({});
+    
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -33,7 +36,6 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         axios.get(foodApi)
             .then(response => {
-                // console.log(response.data); // Kiểm tra dữ liệu
                 setProducts(response.data);
             })
             .catch(error => console.error("Error fetching data:", error));
@@ -42,16 +44,94 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         axios.get(ordersAPI)
             .then(response => {
-                // console.log(response.data); // Kiểm tra dữ liệu
                 setOrders(response.data);
             })
             .catch(error => console.error("Error fetching data:", error));
     }, []);
     
+    const AddToCart = async (id) => {
+        try {
+            const index = products.findIndex(product => product.id === id);
+            if (index !== -1) {
+                const product = products[index];
+                
+                const order = {
+                    productId: product.id,
+                    name: product.name,
+                    image : product.image,
+                    price: product.price,
+                    quantity: 1,
+                    time: new Date(Date.now()).toISOString(),
+                    status: 'Shipped',
+                    category: product.category
+                };
     
+                const response = await axios.post(ordersAPI, order);
+                const newOrder = response.data; // Đơn hàng mới với ID từ server
+    
+                setCart({...cart, [product.id]: (cart[product.id] || 0) + 1 });
+                setOrders([...orders, newOrder]); // Sử dụng dữ liệu từ phản hồi của server
+                console.log(order)
+                console.log(cart)
+
+            }
+        } catch (error) {
+            console.error("Error adding to cart:", error);
+        }
+    }
+    const getQuantity = () => {
+        let total = 0;
+        for (const productId in cart) {
+            total += cart[productId];
+        }
+        return total;
+    }
+
+    const increaseQuantity = async (id) => {
+        try {
+            const order = orders.find(order => order.id === id);
+            if (order) {
+                const updatedOrder = { ...order, quantity: order.quantity + 1 };
+                await axios.put(`${ordersAPI}/${id}`, updatedOrder); // Gửi yêu cầu cập nhật
+                setOrders(orders.map(order => (order.id === id ? updatedOrder : order))); // Cập nhật state
+            }
+        } catch (error) {
+            console.error("Error updating quantity:", error);
+        }
+    };
+
+    // Hàm giảm số lượng và gửi yêu cầu cập nhật qua axios
+    const decreaseQuantity = async (id) => {
+        try {
+            const order = orders.find(order => order.id === id);
+            if (order && order.quantity > 1) {
+                const updatedOrder = { ...order, quantity: order.quantity - 1 };
+                await axios.put(`${ordersAPI}/${id}`, updatedOrder); // Gửi yêu cầu cập nhật
+                setOrders(orders.map(order => (order.id === id ? updatedOrder : order))); // Cập nhật state
+            }
+        } catch (error) {
+            console.error("Error updating quantity:", error);
+        }
+    };
+
+    const removeFromCart = async (id) => {
+        try {
+            await axios.delete(`${ordersAPI}/${id}`); // Gửi yêu cầu DELETE tới server
+            // Cập nhật lại state cart
+            const updatedCart = { ...cart };
+            delete updatedCart[id]; // Xóa sản phẩm khỏi giỏ hàng
+            setCart(updatedCart);
+
+            // Cập nhật lại state orders
+            setOrders(orders.filter(order => order.id !== id));
+        } catch (error) {
+            console.error("Error deleting item:", error);
+        }
+    };
+
 
     const value = {
-        navigate, currency, responsive,products,orders
+        navigate, currency, responsive, products, orders, AddToCart,getQuantity,setOrders,increaseQuantity,decreaseQuantity,removeFromCart
     };
     return (
         <ShopContext.Provider value={value}>
