@@ -12,9 +12,8 @@ const NavBar = () => {
   const [visible, setVisible] = useState(false);
   const [activePage, setActivePage] = useState('');
   const [showSubMenu, setShowSubMenu] = useState(false);
-  const {navigate} = useContext(ShopContext)
+  const {navigate,getQuantity} = useContext(ShopContext)
 
-  // Đóng menu khi nhấn bên ngoài
 
   const handleClick = (page) => {
     setActivePage(page);
@@ -69,8 +68,15 @@ const NavBar = () => {
             <div className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
               <Icon.Bell></Icon.Bell>
             </div>
-            <div onClick={() => navigate('/cart')} className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
+            <div onClick={() => navigate('/cart')} className='menu-icon px-2 py-2 d-flex position-relative shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
               <Icon.Cart></Icon.Cart>
+              <div className='position-absolute  bg-danger text-light ' style={{
+                top:'-14px',
+                right: '-7px',
+                fontSize: '18px',
+                padding:'2px 9px',
+                borderRadius:'100%'
+              }}>{getQuantity()}</div>
             </div>
             <div  className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
               <Icon.Chat></Icon.Chat>

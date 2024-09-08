@@ -400,26 +400,26 @@
   ],
   "orders": [
     {
-      "id": "d769",
-      "productId": "2",
-      "name": "Gà rán HS phần",
-      "image": "../src/assets/chickenset_h_s_1_.png",
-      "price": 95,
-      "quantity": 1,
-      "time": "2024-09-07T17:10:20.568Z",
+      "id": "9459",
+      "productId": "3",
+      "name": "Combo Burger Tôm",
+      "image": "../src/assets/combo_shrimp_6.png",
+      "price": 82,
+      "quantity": 2,
+      "time": "13:01:44 08/09/2024",
       "status": "Shipped",
       "category": "BestSeller"
     },
     {
-      "id": "9268",
-      "productId": "31",
-      "name": "Combo Burger Tôm",
-      "image": "../src/assets/combo_shrimp_6.png",
-      "price": 82,
+      "id": "b9a0",
+      "productId": "1",
+      "name": "Gà rán sét",
+      "image": "../src/assets/chickenset_fried_1_.png",
+      "price": 87,
       "quantity": 1,
-      "time": "2024-09-07T17:15:36.339Z",
+      "time": "13:17:42 08/09/2024",
       "status": "Shipped",
-      "category": "combo"
+      "category": "BestSeller"
     }
   ]
 }
