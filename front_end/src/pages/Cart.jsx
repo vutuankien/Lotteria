@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../Context/ShopContext';
 import { Col, Container, Row } from 'react-bootstrap';
 import * as Icon from 'react-bootstrap-icons';
@@ -7,6 +7,7 @@ import Footer from '../components/Footer/Footer';
 import PolicyFooter from '../components/Policy_Footer/PolicyFooter';
 import RelatedProduct from '../components/RelatedProduct/RelatedProduct';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
+import axios from 'axios';
 
 const Cart = () => {
     const { orders, currency, navigate, getQuantity, decreaseQuantity, increaseQuantity, removeFromCart } = useContext(ShopContext);
@@ -27,6 +28,8 @@ const Cart = () => {
             state: true
         }
     ]);
+
+    
     const handleChange = (index) => {
         const updatedServices = services.map((service, i) =>
             i === index ? { ...service, state: !service.state } : service

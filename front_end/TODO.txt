@@ -20,3 +20,8 @@ Ngày 7/9:
 Ngày 8/9:
     - Code Bill, Search Bar
     - Code Checkout UI    
+Ngày 9/9:
+    - fix go to checkout place after loggin => 
+
+Ngày 10/9:
+    -fix searchbar search theo category và pathname

@@ -69,8 +69,10 @@ import menu_dat_hang_khuyen_mai from './MENU_DAT_HANG_KHUYE_N_MA_I.jpg'
 import menu_dat_hang_phan_nhom from './MENU_DAT_HANG_PHA_N_A_N_NHO_M.jpg'
 import menu_dat_hang_thuc_an_nhe from './MENU_DAT_HANG_THU_C_A_N_NHE.jpg'
 import menu_dat_hang_thuc_uong from './MENU_DAT_HANG_THU_C_UO_NG.jpg'
-import menu_dat_hang_value from './MENU_DAT_HANG_VALUE.jpg'
+import menu_dat_hang_value from './MENU_DAT_HANG_VALUE.jpg';
+import error from './comic-lettering-oops-comic-speech-bubble-with-emotional-text-oops-bright-dynamic-cartoon-illustration-in-retro-pop-art-style-comic-text-sound-effects-png.webp'
 export const assets = {
+    error,
     milk_tea_caramel,
     menu_dat_hang_bestSeller,
     menu_dat_hang_burger,

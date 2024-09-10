@@ -16,17 +16,20 @@ import Promotion from "./pages/Promotion";
 import ChickenSet from "./pages/ChickenSet";
 import Combo from "./pages/Combo";
 import Chicken from "./pages/Chicken";
+import Login from "./pages/Login";
 import Burger from "./pages/Burger";
 import Product from "./pages/Product";
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from "./pages/Cart";
+import Searchbar from "./components/SearchBar/Searchbar";
 function App() {
   return (
     <div style={{ width: '100%' }}>
       <ToastContainer
       autoClose={1000}/>
       <NavBar />
+      <Searchbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/bestSeller" element={<BestSeller />} />
@@ -44,6 +47,7 @@ function App() {
         <Route path="/value" element={<Value />} />
         <Route path="/chicken" element={<Chicken />} />
         <Route path="/burger" element={<Burger />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       {/* <Footer /> */}
     </div>

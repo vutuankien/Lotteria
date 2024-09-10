@@ -14,6 +14,8 @@ const ShopContextProvider = (props) => {
     const [orders, setOrders] = useState([]);
     const [cart, setCart] = useState({});
 
+    const [search, setSearch] = useState("")
+    const [showSearch, setShowSearch] = useState(false)
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -48,6 +50,7 @@ const ShopContextProvider = (props) => {
             })
             .catch(error => console.error("Error fetching data:", error));
     }, []);
+
 
     const AddToCart = async (id) => {
         try {
@@ -99,22 +102,22 @@ const ShopContextProvider = (props) => {
             const order = orders.find(order => order.id === id);
             if (order) {
                 const updatedOrder = { ...order, quantity: order.quantity + 1 };
-                await axios.put(`${ordersAPI}/${id}`, updatedOrder); // Gửi yêu cầu cập nhật
-                setOrders(orders.map(order => (order.id === id ? updatedOrder : order))); // Cập nhật state
+                await axios.put(`${ordersAPI}/${id}`, updatedOrder); 
+                setOrders(orders.map(order => (order.id === id ? updatedOrder : order)));
             }
         } catch (error) {
             console.error("Error updating quantity:", error);
         }
     };
 
-    // Hàm giảm số lượng và gửi yêu cầu cập nhật qua axios
+
     const decreaseQuantity = async (id) => {
         try {
             const order = orders.find(order => order.id === id);
             if (order && order.quantity > 1) {
                 const updatedOrder = { ...order, quantity: order.quantity - 1 };
-                await axios.put(`${ordersAPI}/${id}`, updatedOrder); // Gửi yêu cầu cập nhật
-                setOrders(orders.map(order => (order.id === id ? updatedOrder : order))); // Cập nhật state
+                await axios.put(`${ordersAPI}/${id}`, updatedOrder); 
+                setOrders(orders.map(order => (order.id === id ? updatedOrder : order))); 
             }
         } catch (error) {
             console.error("Error updating quantity:", error);
@@ -123,13 +126,10 @@ const ShopContextProvider = (props) => {
 
     const removeFromCart = async (id) => {
         try {
-            await axios.delete(`${ordersAPI}/${id}`); // Gửi yêu cầu DELETE tới server
-            // Cập nhật lại state cart
+            await axios.delete(`${ordersAPI}/${id}`); 
             const updatedCart = { ...cart };
-            delete updatedCart[id]; // Xóa sản phẩm khỏi giỏ hàng
+            delete updatedCart[id];
             setCart(updatedCart);
-
-            // Cập nhật lại state orders
             setOrders(orders.filter(order => order.id !== id));
         } catch (error) {
             console.error("Error deleting item:", error);
@@ -138,7 +138,7 @@ const ShopContextProvider = (props) => {
 
 
     const value = {
-        navigate, currency, responsive, products, orders, AddToCart, getQuantity, setOrders, increaseQuantity, decreaseQuantity, removeFromCart
+        navigate, currency, responsive, products, orders, AddToCart, getQuantity, setOrders, increaseQuantity, decreaseQuantity, removeFromCart,search,setSearch,showSearch,setShowSearch
     };
     return (
         <ShopContext.Provider value={value}>

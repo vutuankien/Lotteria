@@ -6,14 +6,19 @@ import { NavLink, Link } from 'react-router-dom';
 import * as Icon from 'react-bootstrap-icons';
 import Navbar from 'react-bootstrap/Navbar';
 import './Navbar.css';
+import Image from 'react-bootstrap/Image';
 import { ShopContext } from '../../Context/ShopContext';
-
+import { toast } from 'react-toastify';
 const NavBar = () => {
   const [visible, setVisible] = useState(false);
   const [activePage, setActivePage] = useState('');
   const [showSubMenu, setShowSubMenu] = useState(false);
-  const {navigate,getQuantity} = useContext(ShopContext)
+  const { navigate, getQuantity,showSearch, setShowSearch } = useContext(ShopContext)
 
+
+  const handleSearchBarClick = () => {
+        setShowSearch(true);
+};
 
   const handleClick = (page) => {
     setActivePage(page);
@@ -29,58 +34,54 @@ const NavBar = () => {
               <img src={assets.lotteria_logo} style={{ width: '60px' }} className='me-2' />
             </Link>
             <Nav className='me-auto d-none d-md-block d-md-flex'>
-              <NavLink to='/bestSeller' onClick={() => handleClick('bestSeller')} className={`text-decoration-none fw-bold d-flex flex-column align-align-items-center ${activePage === 'bestSeller' ? 'text-danger underline' : 'text-black'}`}>
+              <NavLink to='/bestSeller' onClick={() => handleClick('bestSeller')} className={`text-decoration-none fw-bold d-flex flex-column align-items-center ${activePage === 'bestSeller' ? 'text-danger underline' : 'text-black'}`}>
                 <p className='text-uppercase fs-5 px-2'>Best Seller</p>
               </NavLink>
-              <NavLink to='/set' onClick={() => handleClick('orders')} className={`text-decoration-none fw-bold d-flex flex-column align-align-items-center ${activePage === 'orders' ? 'text-danger underline' : 'text-black'}`}>
+              <NavLink to='/set' onClick={() => handleClick('orders')} className={`text-decoration-none fw-bold d-flex flex-column align-items-center ${activePage === 'orders' ? 'text-danger underline' : 'text-black'}`}>
                 <p className='text-uppercase fs-5 px-2'>Đặt hàng</p>
               </NavLink>
-              <NavLink to='/discount' onClick={() => handleClick('discount')} className={`text-decoration-none fw-bold d-flex flex-column align-align-items-center ${activePage === 'discount' ? 'text-danger underline' : 'text-black'}`}>
+              <NavLink to='/discount' onClick={() => handleClick('discount')} className={`text-decoration-none fw-bold d-flex flex-column align-items-center ${activePage === 'discount' ? 'text-danger underline' : 'text-black'}`}>
                 <p className='text-uppercase fs-5 px-2'>Khuyến mãi</p>
               </NavLink>
-              <NavLink to='/store' onClick={() => handleClick('store')} className={`text-decoration-none fw-bold d-flex flex-column align-align-items-center ${activePage === 'store' ? 'text-danger underline' : 'text-black'}`}>
+              <NavLink to='/store' onClick={() => handleClick('store')} className={`text-decoration-none fw-bold d-flex flex-column align-items-center ${activePage === 'store' ? 'text-danger underline' : 'text-black'}`}>
                 <p className='text-uppercase fs-5 px-2'>Cửa hàng</p>
               </NavLink>
             </Nav>
           </div>
 
           <div className='d-flex gap-3 menu'>
-            <div className='px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
-              <Icon.GeoAlt></Icon.GeoAlt>
+            <div className='px-2 py-2 d-flex shadow-lg border rounded-circle' onClick={() => handleSearchBarClick()} style={{ cursor: 'pointer' }}>
+              <Icon.Search></Icon.Search>
+            </div>
+            <div onClick={() => navigate('/cart')} className='menu-icon px-2 py-2 d-flex position-relative shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
+              <Icon.Cart></Icon.Cart>
+              <div className='position-absolute  bg-danger text-light ' style={{
+                top: '-14px',
+                right: '-7px',
+                fontSize: '18px',
+                padding: '2px 9px',
+                borderRadius: '100%'
+              }}>{getQuantity()}</div>
             </div>
             <div
               onClick={() => setShowSubMenu(!showSubMenu)} // Toggle sub-menu on click
-              className='position-relative menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle'
+              className='position-relative menu-icon d-flex shadow-lg border rounded-circle'
               style={{ cursor: 'pointer' }}
             >
-              <Icon.Person></Icon.Person>
+              <Image src={assets.Lotte_02} width={'33px'} height={'33px'} roundedCircle />
               <div
                 className={`position-absolute mt-4 rounded-3 shadow-lg p-3 end-0 bg-white ${showSubMenu ? 'd-block' : 'd-none'}`}
                 style={{ width: '250px' }}
               >
                 <p className='text-black fs-5'><Icon.Person className='me-2'></Icon.Person>Thông tin tài khoản</p>
                 <p className='text-black fs-5'><Icon.GeoAlt className='me-2'></Icon.GeoAlt>Địa chỉ giao hàng</p>
-                <p className='text-black fs-5'><Icon.Clipboard className='me-2'></Icon.Clipboard>Lịch sử giao hàng</p>
-                <p className='text-black fs-5'><Icon.Heart className='me-2'></Icon.Heart>Thực đơn của tôi</p>
+                <p className='text-black fs-5'><Icon.Book className='me-2'></Icon.Book>Lịch sử đơn hàng</p>
+                <p className='text-black fs-5'><Icon.Chat className='me-2'></Icon.Chat>Hỗ trợ</p>
                 <p className='text-black fs-5'><Icon.BoxArrowInLeft className='me-2'></Icon.BoxArrowInLeft>Đăng xuất</p>
               </div>
             </div>
-            <div className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
-              <Icon.Bell></Icon.Bell>
-            </div>
-            <div onClick={() => navigate('/cart')} className='menu-icon px-2 py-2 d-flex position-relative shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
-              <Icon.Cart></Icon.Cart>
-              <div className='position-absolute  bg-danger text-light ' style={{
-                top:'-14px',
-                right: '-7px',
-                fontSize: '18px',
-                padding:'2px 9px',
-                borderRadius:'100%'
-              }}>{getQuantity()}</div>
-            </div>
-            <div  className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle' style={{ cursor: 'pointer' }}>
-              <Icon.Chat></Icon.Chat>
-            </div>
+
+
             <div className='menu-icon px-2 py-2 d-flex shadow-lg border rounded-circle d-block d-sm-none' onClick={() => setVisible(!visible)} style={{ cursor: 'pointer' }}>
               <Icon.List></Icon.List>
             </div>
