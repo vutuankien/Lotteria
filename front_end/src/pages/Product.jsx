@@ -62,7 +62,7 @@ const Product = () => {
                         <button
                             className="w-100 mt-3 px-4 py-2 rounded-5 text-white bg-danger"
                             onClick={() => {
-                                AddToCart(productData.id);
+                                AddToCart(1,productData.id);
                                 toast.success("Add Product Successfully!")
                             }}
                         >

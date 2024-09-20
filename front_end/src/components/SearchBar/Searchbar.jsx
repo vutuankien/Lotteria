@@ -31,7 +31,7 @@ const Searchbar = () => {
     }, []);
 
     useEffect(() => {
-        // Kiểm tra xem đường dẫn có chứa category nào không
+        
         const currentCategory = pathName.find(path => location.pathname.includes(path));
         if (currentCategory && showSearch) {
             setVisible(true);
@@ -74,7 +74,7 @@ const Searchbar = () => {
                     type='text'
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    placeholder='Search...'
+                    placeholder='Tìm kiếm sản phẩm...'
                 />
                 <button onClick={() => setShowSearch(false)} className='btn btn-primary'>
                     <Icon.X className='fs-5' />

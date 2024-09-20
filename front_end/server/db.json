@@ -398,30 +398,7 @@
       "category": "burger"
     }
   ],
-  "orders": [
-    {
-      "id": "fa5b",
-      "productId": "5",
-      "name": "Loy set",
-      "image": "../src/assets/pack_loy_set_2_.png",
-      "price": 145,
-      "quantity": 3,
-      "time": "20:11:59 09/09/2024",
-      "status": "Shipped",
-      "category": "BestSeller"
-    },
-    {
-      "id": "05ec",
-      "productId": "3",
-      "name": "Combo Burger Tôm",
-      "image": "../src/assets/combo_shrimp_6.png",
-      "price": 82,
-      "quantity": 1,
-      "time": "20:12:10 09/09/2024",
-      "status": "Shipped",
-      "category": "BestSeller"
-    }
-  ],
+  "orders": [],
   "UsersAccount": [
     {
       "id": "1",
@@ -430,8 +407,7 @@
       "phone": "0987654321",
       "address": "123 Main St, City, State, ZIP",
       "password": "12345",
-      "ordersID": "fb62",
-      "isLoggin": true
+      "isLoggedIn": true
     },
     {
       "id": "2",
@@ -439,9 +415,8 @@
       "email": "jane.smith@example.com",
       "phone": "1234567890",
       "address": "456 Elm St, City, State, ZIP",
-      "ordersID": "fb62",
       "password": "12345",
-      "isLoggin": false
+      "isLoggedIn": false
     }
   ]
 }

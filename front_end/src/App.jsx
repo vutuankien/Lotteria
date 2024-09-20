@@ -23,6 +23,7 @@ import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from "./pages/Cart";
 import Searchbar from "./components/SearchBar/Searchbar";
+import NextStep from "./pages/NextStep";
 function App() {
   return (
     <div style={{ width: '100%' }}>
@@ -47,6 +48,7 @@ function App() {
         <Route path="/value" element={<Value />} />
         <Route path="/chicken" element={<Chicken />} />
         <Route path="/burger" element={<Burger />} />
+        <Route path="/next_step" element={<NextStep />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       {/* <Footer /> */}
