@@ -9,8 +9,11 @@ const ShopContextProvider = (props) => {
     const navigate = useNavigate();
     const currency = '₫';
     const foodApi = 'http://localhost:3000/Foods';
-    const ordersAPI = 'http://localhost:3000/orders'
+    const ordersAPI = 'http://localhost:3000/orders';
+    const billAPI = 'http://localhost:3000/Bills'
+    const userAPI = 'http://localhost:3000/UsersAccount'
     const [products, setProducts] = useState([]);
+    const [users, setUsers] = useState([]);
     const [orders, setOrders] = useState([]);
     const [cart, setCart] = useState({});
 
@@ -34,6 +37,14 @@ const ShopContextProvider = (props) => {
             items: 4
         }
     };
+
+    useEffect(() => {
+        axios.get(userAPI)
+            .then(response => {
+                setUsers(response.data)
+            })
+            .catch(error => console.log("Error fetching data",error))
+    },[])
 
     useEffect(() => {
         axios.get(foodApi)
@@ -286,7 +297,8 @@ const ShopContextProvider = (props) => {
 
 
     const value = {
-        navigate, currency, responsive, products, orders, AddToCart, getQuantity, setOrders, increaseQuantity, decreaseQuantity, removeFromCart,search,setSearch,showSearch,setShowSearch,ordersAPI
+        navigate, currency, responsive, products, orders, AddToCart, getQuantity, setOrders, increaseQuantity, decreaseQuantity, removeFromCart,search,setSearch,showSearch,setShowSearch,ordersAPI,billAPI,setOrders,
+        users
     };
     return (
         <ShopContext.Provider value={value}>

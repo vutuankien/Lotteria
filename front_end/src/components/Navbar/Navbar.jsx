@@ -105,7 +105,7 @@ const NavBar = () => {
           <p className={`text-uppercase fs-5 px-2 py-2 ${activePage === 'bestSeller' ? 'text-white bg-danger' : ''}`}>Best Seller</p>
         </NavLink>
         <NavLink
-          to='/orders'
+          to='/set'
           className='text-decoration-none fw-bold'
           onClick={() => handleClick('orders')}
         >
