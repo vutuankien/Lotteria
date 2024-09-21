@@ -71,7 +71,11 @@ import menu_dat_hang_thuc_an_nhe from './MENU_DAT_HANG_THU_C_A_N_NHE.jpg'
 import menu_dat_hang_thuc_uong from './MENU_DAT_HANG_THU_C_UO_NG.jpg'
 import menu_dat_hang_value from './MENU_DAT_HANG_VALUE.jpg';
 import error from './comic-lettering-oops-comic-speech-bubble-with-emotional-text-oops-bright-dynamic-cartoon-illustration-in-retro-pop-art-style-comic-text-sound-effects-png.webp'
+import qrcode from "./qrcode.png"
+import qrbank from "./qrbank.jpg"
 export const assets = {
+    qrbank,
+    qrcode,
     error,
     milk_tea_caramel,
     menu_dat_hang_bestSeller,

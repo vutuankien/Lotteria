@@ -398,7 +398,23 @@
       "category": "burger"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "e061",
+      "userId": 1,
+      "products": [
+        {
+          "productId": "4",
+          "quantity": 3,
+          "price": 82,
+          "totalMoney": 246
+        }
+      ],
+      "totalPrice": 261,
+      "time": "15:09:07 21/09/2024",
+      "status": "Shipped"
+    }
+  ],
   "UsersAccount": [
     {
       "id": "1",
