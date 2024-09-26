@@ -6,7 +6,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // navigate('/homepage'); 
+    navigate('/home'); 
     // onLogin()
   };
 

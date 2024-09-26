@@ -214,7 +214,7 @@
       "category": "rice"
     },
     {
-      "id": "25",
+      "id": "47",
       "name": "Cơm Gà Sốt Đậu",
       "price": 46,
       "oldPrice": 55,
@@ -222,7 +222,7 @@
       "category": "rice"
     },
     {
-      "id": "25",
+      "id": "48",
       "name": "Cơm Gà Sốt HS",
       "price": 46,
       "oldPrice": 55,
@@ -398,30 +398,10 @@
       "category": "burger"
     }
   ],
-  "orders": [
-    {
-      "id": "ca57",
-      "userId": 1,
-      "products": [
-        {
-          "productId": "4",
-          "quantity": 2,
-          "price": 82,
-          "totalMoney": 164
-        },
-        {
-          "productId": "8",
-          "quantity": 1,
-          "price": 280,
-          "totalMoney": 280
-        }
-      ],
-      "totalPrice": 459,
-      "time": "14:24:54 24/09/2024",
-      "status": "Shipped"
-    }
+  "orders": [],
+  "Bills": [
+    
   ],
-  "Bills": [],
   "UsersAccount": [
     {
       "id": "1",

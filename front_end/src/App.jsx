@@ -25,6 +25,7 @@ import Cart from "./pages/Cart";
 import Searchbar from "./components/SearchBar/Searchbar";
 import NextStep from "./pages/NextStep";
 import Homepage from "./pages/Homepage";
+import Bill from "./pages/bill_test";
 import DiscountDetail from "./pages/DiscountDetail";
 function App() {
 
@@ -39,13 +40,13 @@ function App() {
         <NavBar />
         <Searchbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/bestSeller" element={<BestSeller />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/discount" element={<Discount />} />
           <Route path="/discount/:blogId" element={<DiscountDetail />} />
-          <Route path="/store" element={<Store />} />
+          <Route path="/store" element={<Bill />} />
           <Route path="/drink" element={<Drink />} />
           <Route path="/fastFood" element={<FastFood />} />
           <Route path="/rice" element={<Rice />} />
@@ -57,7 +58,7 @@ function App() {
           <Route path="/chicken" element={<Chicken />} />
           <Route path="/burger" element={<Burger />} />
           <Route path="/next_step" element={<NextStep />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
         </Routes>
 
       </div>

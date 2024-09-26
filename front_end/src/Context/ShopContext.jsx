@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import emailjs from '@emailjs/browser';
 
 export const ShopContext = createContext();
 
@@ -17,6 +18,11 @@ const ShopContextProvider = (props) => {
     const [orders, setOrders] = useState([]);
     const [cart, setCart] = useState({});
     const [blogs, setBlogs] = useState([]);
+
+    // Email Part
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
 
     const [search, setSearch] = useState("")
     const [showSearch, setShowSearch] = useState(false)
@@ -219,10 +225,6 @@ const ShopContextProvider = (props) => {
         }
     };
 
-
-
-
-
     const decreaseQuantity = async (orderId, productId) => {
         try {
             // Tìm đơn hàng dựa trên orderId
@@ -255,7 +257,6 @@ const ShopContextProvider = (props) => {
             console.error("Error updating product quantity:", error);
         }
     };
-
 
     const removeFromCart = async (orderId, productId) => {
         try {
@@ -300,10 +301,34 @@ const ShopContextProvider = (props) => {
         }
     };
 
+    const sendEmail = async () => {
+        
 
+        const serviceId = 'service_idcd6zm'
+        const templateId = 'template_egye8bc'
+        const publicKey = 'Wx1yXJrCO16ReBb_M'
+
+        const templateParams = {
+            from_name: 'ĐHKNStore',
+            from_email: 'vutuankien2004@gmail.com',
+            to_name: 'Djt cu may',
+            to_email: '22010466@st.phenikaa-uni.edu.vn',
+            message: 'dcm phong ban'
+        }
+
+        emailjs.send(serviceId, templateId, templateParams,publicKey)
+            .then(response => {
+                console.log("send email successfully",response)
+
+            })
+            .catch(error => {
+                console.error("send email failed:", error);
+            });
+
+    }
 
     const value = {
-        navigate, currency, responsive, products, orders, AddToCart, getQuantity, setOrders, increaseQuantity, decreaseQuantity, removeFromCart, search, setSearch, showSearch, setShowSearch, ordersAPI, billAPI, setOrders,blogs,
+        navigate, currency, responsive, products, orders, AddToCart, getQuantity, increaseQuantity, decreaseQuantity, removeFromCart, search, setSearch, showSearch, setShowSearch, ordersAPI, billAPI, setOrders, blogs,sendEmail,
         users
     };
     return (
