@@ -20,9 +20,9 @@ const ShopContextProvider = (props) => {
     const [blogs, setBlogs] = useState([]);
 
     // Email Part
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [message, setMessage] = useState('')
+    // const [name, setName] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [message, setMessage] = useState('')
 
     const [search, setSearch] = useState("")
     const [showSearch, setShowSearch] = useState(false)
@@ -89,7 +89,7 @@ const ShopContextProvider = (props) => {
             const product = products[productIndex];
 
             // Kiểm tra xem đã có đơn hàng cho userId này chưa
-            const existingOrderIndex = orders.findIndex(order => order.userId === userId && order.status === "Shipped");
+            const existingOrderIndex = orders.findIndex(order => order.userId === userId && order.status === "Shipping");
             let newOrder;
 
             if (existingOrderIndex !== -1) {
@@ -137,7 +137,7 @@ const ShopContextProvider = (props) => {
                         minute: '2-digit',
                         second: '2-digit',
                     }),
-                    status: 'Shipped'
+                    status: 'Shipping'
                 };
 
                 // Gửi yêu cầu POST để tạo đơn hàng mới

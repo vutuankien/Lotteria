@@ -5,13 +5,14 @@ import { assets } from '../../assets/assetss'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './News.css'
+import { Link } from 'react-router-dom';
 const News = () => {
 
 
     const cards = [
-        { id: 1, img: assets.news_1, title: "SINH NHẬT THÊM BÁNH, BÉ YÊU THÊM VUI – GIÁ CHỈ TỪ 78K/BÉ" },
-        { id: 2, img: assets.news_2, title: "BÁNH 'NÓNG' CHO MÙA ĐÔNG" },
-        { id: 3, img: assets.news_3, title: "CHICKEN TERIYAKI PIZZA" },
+        { id: 3, img: assets.birthday, title: "SINH NHẬT THÊM BÁNH, BÉ YÊU THÊM VUI – GIÁ CHỈ TỪ 78K/BÉ" },
+        { id: 4, img: assets.hotCake, title: "BÁNH 'NÓNG' CHO MÙA ĐÔNG" },
+        { id: 2, img: assets.downloadApp, title: "TẢI APP NHẬN QUÀ - ĂN NGON THẢ GA TẠI LOTTERIA" },
 
     ];
     const responsive = {
@@ -49,6 +50,7 @@ const News = () => {
                 <div className='mt-3'>
                     <Carousel fade className='z-0' responsive={responsive}>
                         {cards.map((item, index) => (
+                            <Link to={`/discount/${item.id}`} className='text-black text-decoration-none'>
                             <div key={index} style={{
                                 border: '1px solid #ccc',
                                 borderRadius: '10px',
@@ -83,6 +85,7 @@ const News = () => {
                                     zIndex:-1
                                 }}>Show More</button>
                             </div>
+                            </Link>
                         ))}
                     </Carousel>
                 </div>
