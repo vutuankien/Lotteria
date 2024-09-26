@@ -540,5 +540,39 @@
       "password": "12345",
       "isLoggedIn": false
     }
+  ],
+  "Blogs": [
+    {
+      "id": "1",
+      "title": "THÁNG 9 GẶP LẠI NHAU - COMBO ƯU ĐÃI CHỈ TỪ 69KA",
+      "subtitle": "Bé vui tựu trường cùng vô vàn ưu đãi hấp dẫn từ Lotteria, tiết kiệm lên đến 41.000đ cho các combo siêu khủng ­dưới đây:",
+      "content": "1. Combo 69,000đ: Burger tôm + Gà miếng nuggets (3 miếng) + Kem ly + Pepsi cỡ vừa (giảm 33.000đ so với giá gốc)\n 2. Combo 69,000đ: Gà rán giòn ngon + Mì ý cỡ vừa + Kem ly + Pepsi cỡ vừa (giảm 26.000đ so với giá gốc)\n3. Combo 129,000đ: Gà rán giòn ngon + Burger bò Teriyaki + Mì ý cỡ vừa + Khoai tây chiên + 2 Pepsi cỡ vừa (giảm 41.000đ so với giá gốc)\nLưu ý: 2 Combo 69,000đ không áp dụng cho kênh giao hàng call center, web, app Lotteria, Grab food, Shopee food, Be food.\nChương trình áp dụng từ 01/09/2024 đến 30/09/2024.\nKhuyến mãi áp dụng tại cửa hàng Lotteria, nhanh nhanh đến các cửa hàng tận hưởng ưu đãi tháng này nha Fans iu ơi!",
+      "date": "2024-03-12",
+      "img": "../src/assets/nsp_thang_9_1070x750px-01.jpg"
+    },
+    {
+      "id": "2",
+      "title": "TẢI APP NHẬN QUÀ - ĂN NGON THẢ GA TẠI LOTTERIA",
+      "subtitle": "BẠN ORDER ĐƠN ĐẦU TIÊN TRÊN APP LOTTERIA, ĐỂ NHẬN NGAY 01 PHẦN KHOAI TÂY LẮC TUYẾT XANH MIỄN PHÍ NHÉ !!",
+      "content": "Chỉ cần tải app bạn sẽ nhận được ưu đãi khủng và đừng quên gửi đánh giá 5 sao cho trải nghiệm App của mình nhé.\nĐiều kiện áp dụng:\n- Chương trình áp dụng từ ngày 01/9 đến hết 31/10/2024\n-Chươngtrình áp dụng duy nhất cho đơn đầu tiên\n- Chỉ áp dụng đặt hàng qua App Lotteria\n- Chương trình áp dụng tại 1 số cửa hàng. Bạn có thể xem danh sách cửa hàng áp dụng 'ƯU ĐÃI' tặng Màn Thầu Chiên tại khu vực tìm kiếm cửa hàng bên dưới nhé",
+      "date": "2024-09-03",
+      "img": "../src/assets/tai_app_nhan_khoai_tay_1070x750px-01-01.jpg"
+    },
+    {
+      "id": "3",
+      "title": "SINH NHẬT THÊM BÁNH, BÉ YÊU THÊM VUI – GIÁ CHỈ TỪ 78K/BÉ",
+      "date": "2022-01-01",
+      "subtitle": "loremLaboris nulla consequat cillum cupidatat ut consequat aliquip exercitation duis ea laborum laboris ea. Minim dolor ex et ex laborum elit velit. ",
+      "content": "Lotteria chính thức hợp tác cùng TOUS les JOURS mang đến cho bé bữa tiệc sinh nhật hoành tráng với giá chỉ từ 78K cho các combo tiệc sau:\n- Loy party 78K: Gà rán + Khoai tây chiên (cỡ vừa) + Kem cây + Pepsi (cỡ vừa)\n- Lody party 78K: Burger Bulgogi/Burger Tôm + Phô mai que + Kem cây + Pepsi (cỡ vừa)\n- Lony party 97K: Gà rán + Mì ý + Khoai tây chiên (cỡ vừa) + Kem cây + Pepsi (cỡ vừa)\n- Loking party 123K: Gà rán + Mì ý thịt bò + Phô mai que + Kem ly + Pepsi (cỡ vừa)\n Tặng FREE cho bé các dịch vụ trang trí set up tiệc cùng biệt đội L4 với bong bóng lấp lánh siu đáng iu, miễn phí nón và thiệp sinh nhật cho các bé khi đặt tiệc tại Lotteria.\nNgoài ra, Ria Fans có thể trải nghiệm những chiếc bánh kem cực kì hấp dẫn đến từ thương hiệu bánh nổi tiếng TOUS les JOURS ngay tại Lotteria với mức giá KHÔNG THỂ HẤP DẪN HƠN:\n>> Unicorn Rainbow Fresh giá chỉ 450k\n>> Delighted Orange Fresh giá chỉ 430k\n>> Cookie Cheese Mousse giá chỉ 430k\n>> Teddy­­­­­ Bear - Party Time Cake giá chỉ 430k\nChương trình áp dụng tại các cửa hàng Lotteria khu vực Hà Nội, Hồ Chí Minh và Hải Phòng, nhanh nhanh đến các cửa hàng gần nhất hoặc gọi qua hotline 1900.6778 để được tư vấn hỗ trợ đặt tiệc cho các bé nha Fans iu ơi!\n#LotteriaVietnam #MyFAVORITELOTTERIA #tiecsinhnhat #LotteriaxTLJ",
+      "img": "../src/assets/tlj_1070x750px-01.jpg"
+    },
+    {
+      "id": "4",
+      "title": "BÁNH 'NÓNG' CHO MÙA ĐÔNG ẤM ÁP GIỮA TIẾT TRỜI LẠNH GIÁ",
+      "subtitle": "loremLaboris nulla consequat cillum cupidatat ut consequat aliquip exercitation duis ea laborum laboris ea. Minim dolor ex et ex laborum elit velit. ",
+      "content": "Lấy cảm hứng từ Bánh mì Pháp, kết hợp cùng những nguyên liệu đậm chất Châu Á,\n Nhà Gà mời bạn đến với chuyến giao thoa ẩm thực đầy thú vị khi thưởng thức\nBánh chiên - 'K-Croquette' với 2 sự lựa chọn:\nBánh Chiên Nhân Kim Chi với thịt heo cùng Kim chi cải thảo, hai vị chua-cay hoà quyện, đậm đà khó cưỡng\nBánh Chiên Nhân Xá xíu với thịt xá xíu đủ vị mặn-ngọt-nồng cùng nấm đông cô dai ngon, ăn rồi chỉ muốn ăn thêm…\nGiá dùng thử chỉ 39.000đ/cái\nCombo tiết kiệm: 1 Bánh chiên (Nhân Kim Chi/Xá Xíu) + Milkis/Micho Sparkling giá chỉ 55.000đ - lựa chọn hoàn hảo để bắt đầu một ngày mới\nBánh Chiên - 'K-Croquette'đã lên kệ tại Lotteria từ hôm nay 15/12/2023, cùng đến thưởng thức nhé các bạn ơi!\n#MyFAVORITELOTTERIA #LotteriaVietnam #Banhchien #Kimchi #Xaxiu",
+      "date": "2024-09-30",
+      "img": "../src/assets/zalo_oa_b_nh_chi_n2-01.jpg"
+    }
   ]
 }
