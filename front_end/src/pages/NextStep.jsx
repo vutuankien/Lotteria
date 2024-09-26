@@ -10,16 +10,18 @@ import PolicyFooter from '../components/Policy_Footer/PolicyFooter';
 
 const NextStep = () => {
   const [method, setMethod] = useState("Cash");
-  const { orders, currency, products, billAPI, setOrders, ordersAPI, navigate, users } = useContext(ShopContext);
+  const { orders, currency, products, billAPI, setOrders, ordersAPI, navigate, users,sendEmail } = useContext(ShopContext);
   const [swalProps, setSwalProps] = useState({});
   const [bill, setBill] = useState([])
 
   const handleClick = async () => {
+    // Hiển thị thông báo thanh toán
     setSwalProps({
       show: true,
       icon: method === 'Cash' ? "success" : "info"
     });
 
+    // Copy Bill
     const updatedBills = [...bill];
 
     // Lặp qua từng order để xử lý
@@ -86,6 +88,10 @@ const NextStep = () => {
     } catch (error) {
       console.error("Error:", error);
     }
+
+
+      // Hiển thị email
+      sendEmail()
   };
 
   return (
@@ -165,7 +171,7 @@ const NextStep = () => {
               <Button className="fs-5 fw-medium shadow" onClick={handleClick}>
                 Thanh toán
               </Button>
-              <SweetAlert2 {...swalProps} onConfirm={() => navigate('/')}>
+              <SweetAlert2 {...swalProps} onConfirm={() => navigate('/home')}>
                 {method === "Cash" ? (
                   <div>
                     <p className='fs-3 text-black fw-bold'>Cảm ơn bạn đã đặt hàng</p>

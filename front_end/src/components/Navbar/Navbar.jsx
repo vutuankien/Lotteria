@@ -30,7 +30,7 @@ const NavBar = () => {
       <Navbar className='position-fixed top-0 start-0 end-0 bNavbar z-1 shadow d-flex justify-content-center align-content-center' bg='light' data-bs-theme='dark'>
         <Container>
           <div className='d-flex align-items-center'>
-            <Link to='/'>
+            <Link to='/home'>
               <img src={assets.lotteria_logo} style={{ width: '60px' }} className='me-2' />
             </Link>
             <Nav className='me-auto d-none d-md-block d-md-flex'>
@@ -92,7 +92,7 @@ const NavBar = () => {
 
       {/* For mobile screen */}
       <div className={`mobile-menu ${visible ? 'open' : ''} z-1 position-fixed top-0 end-0 start-0 bottom-0`} style={{ width: '100%', height: '100vh' }}>
-        <NavLink to='/' className='text-decoration-none text-black fw-bold' onClick={() => setVisible(false)}>
+        <NavLink to='/home' className='text-decoration-none text-black fw-bold' onClick={() => setVisible(false)}>
           <p className='text-uppercase fs-5 px-2 d-flex align-items-center gap-2 shadow-sm '>
             <Icon.ArrowLeft></Icon.ArrowLeft> Back
           </p>

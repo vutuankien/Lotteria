@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import emailjs from '@emailjs/browser';
 
 export const ShopContext = createContext();
 
@@ -16,6 +17,12 @@ const ShopContextProvider = (props) => {
     const [users, setUsers] = useState([]);
     const [orders, setOrders] = useState([]);
     const [cart, setCart] = useState({});
+    const [blogs, setBlogs] = useState([]);
+
+    // Email Part
+    // const [name, setName] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [message, setMessage] = useState('')
 
     const [search, setSearch] = useState("")
     const [showSearch, setShowSearch] = useState(false)
@@ -43,8 +50,13 @@ const ShopContextProvider = (props) => {
             .then(response => {
                 setUsers(response.data)
             })
-            .catch(error => console.log("Error fetching data",error))
-    },[])
+            .catch(error => console.log("Error fetching data", error))
+    }, [])
+    useEffect(() => {
+        axios.get("http://localhost:3000/Blogs")
+            .then((response) => setBlogs(response.data))
+            .catch((error) => console.error('Error fetching data:', error))
+    }, [])
 
     useEffect(() => {
         axios.get(foodApi)
@@ -67,26 +79,26 @@ const ShopContextProvider = (props) => {
         try {
             // Tìm sản phẩm theo productId
             const productIndex = products.findIndex(product => product.id === productId);
-            
+
             // Kiểm tra xem sản phẩm có tồn tại không
             if (productIndex === -1) {
                 console.error("Product not found");
                 return; // Không tìm thấy sản phẩm
             }
-    
+
             const product = products[productIndex];
-    
+
             // Kiểm tra xem đã có đơn hàng cho userId này chưa
-            const existingOrderIndex = orders.findIndex(order => order.userId === userId && order.status === "Shipped");
+            const existingOrderIndex = orders.findIndex(order => order.userId === userId && order.status === "Shipping");
             let newOrder;
-    
+
             if (existingOrderIndex !== -1) {
                 // Nếu đã có đơn hàng, lấy đơn hàng đó
                 const existingOrder = orders[existingOrderIndex];
-                
+
                 // Tìm sản phẩm trong đơn hàng
                 const productInOrderIndex = existingOrder.products.findIndex(item => item.productId === productId);
-                
+
                 if (productInOrderIndex !== -1) {
                     // Nếu sản phẩm đã có trong đơn hàng, tăng số lượng
                     existingOrder.products[productInOrderIndex].quantity += 1;
@@ -94,17 +106,17 @@ const ShopContextProvider = (props) => {
                     // Nếu sản phẩm chưa có trong đơn hàng, thêm sản phẩm mới
                     existingOrder.products.push({ productId: product.id, quantity: 1, price: product.price });
                 }
-    
+
                 // Tính lại tổng tiền cho tất cả các sản phẩm trong đơn hàng
                 existingOrder.totalPrice = existingOrder.products.reduce((total, item) => {
                     const productData = products.find(p => p.id === item.productId);
                     return total + (productData ? productData.price * item.quantity : 0);
                 }, 0);
-    
+
                 // Gửi yêu cầu cập nhật đơn hàng lên server
                 const response = await axios.put(`${ordersAPI}/${existingOrder.id}`, existingOrder);
                 newOrder = response.data; // Đơn hàng đã cập nhật
-    
+
             } else {
                 // Nếu chưa có đơn hàng, tạo đơn hàng mới
                 const newOrderData = {
@@ -125,20 +137,20 @@ const ShopContextProvider = (props) => {
                         minute: '2-digit',
                         second: '2-digit',
                     }),
-                    status: 'Shipped'
+                    status: 'Shipping'
                 };
-    
+
                 // Gửi yêu cầu POST để tạo đơn hàng mới
                 const response = await axios.post(ordersAPI, newOrderData);
                 newOrder = response.data; // Đơn hàng mới từ server
             }
-    
+
             // Cập nhật giỏ hàng (Cart)
             setCart(prevCart => ({
                 ...prevCart,
                 [product.id]: (prevCart[product.id] || 0) + 1
             }));
-    
+
             // Cập nhật danh sách đơn hàng với đơn hàng mới hoặc đã cập nhật
             setOrders(prevOrders => {
                 if (existingOrderIndex !== -1) {
@@ -149,7 +161,7 @@ const ShopContextProvider = (props) => {
                     return [...prevOrders, newOrder];
                 }
             });
-    
+
             // Log kết quả để kiểm tra
             console.log(newOrder);
             console.log(cart);
@@ -158,10 +170,10 @@ const ShopContextProvider = (props) => {
             console.error("Error adding to cart:", error);
         }
     };
-    
+
     const getQuantity = () => {
         let total = 0;
-        
+
         // Duyệt qua từng đơn hàng trong orders
         for (const order of orders) {
             // Duyệt qua từng sản phẩm trong mảng products của đơn hàng
@@ -170,41 +182,41 @@ const ShopContextProvider = (props) => {
                 total += product.quantity;
             }
         }
-        
+
         return total;
     };
-    
+
 
     const increaseQuantity = async (orderId, productId) => {
         try {
             // Tìm đơn hàng dựa trên orderId
             const order = orders.find(order => order.id === orderId);
-    
+
             if (order) {
                 // Cập nhật số lượng sản phẩm trong đơn hàng
-                const updatedProducts = order.products.map(product => 
+                const updatedProducts = order.products.map(product =>
                     product.productId === productId
                         ? { ...product, quantity: product.quantity + 1 } // Tăng số lượng sản phẩm
                         : product
                 );
-    
+
                 // Tính lại tổng giá tiền dựa trên số lượng sản phẩm
                 const updatedTotalPrice = updatedProducts.reduce((total, product) => {
                     const productData = products.find(p => p.id === product.productId);
                     return total + (productData ? productData.price * product.quantity : 0);
                 }, 0);
-    
+
                 // Cập nhật đơn hàng với sản phẩm và tổng giá tiền mới
-                const updatedOrder = { 
-                    ...order, 
-                    products: updatedProducts, 
-                    totalPrice: updatedTotalPrice 
+                const updatedOrder = {
+                    ...order,
+                    products: updatedProducts,
+                    totalPrice: updatedTotalPrice
                 };
-    
+
                 // Gửi yêu cầu cập nhật đơn hàng lên server
                 const response = await axios.put(`${ordersAPI}/${orderId}`, updatedOrder);
                 const newOrder = response.data; // Đơn hàng đã được cập nhật từ server
-    
+
                 // Cập nhật state với đơn hàng mới
                 setOrders(orders.map(order => (order.id === orderId ? newOrder : order)));
             }
@@ -212,16 +224,12 @@ const ShopContextProvider = (props) => {
             console.error("Error updating product quantity:", error);
         }
     };
-    
-    
-    
-
 
     const decreaseQuantity = async (orderId, productId) => {
         try {
             // Tìm đơn hàng dựa trên orderId
             const order = orders.find(order => order.id === orderId);
-    
+
             if (order) {
                 // Cập nhật số lượng sản phẩm trong đơn hàng
                 const updatedProducts = order.products.map(product =>
@@ -229,19 +237,19 @@ const ShopContextProvider = (props) => {
                         ? { ...product, quantity: product.quantity - 1 } // Giảm số lượng sản phẩm
                         : product
                 );
-    
+
                 // Tính lại tổng giá tiền dựa trên số lượng sản phẩm mới
                 const updatedTotalPrice = updatedProducts.reduce((total, product) => {
                     const productData = products.find(p => p.id === product.productId);
                     return total + (productData ? productData.price * product.quantity : 0);
                 }, 0);
-    
+
                 // Cập nhật đơn hàng với sản phẩm và tổng giá tiền mới
                 const updatedOrder = { ...order, products: updatedProducts, totalPrice: updatedTotalPrice };
-    
+
                 // Gửi yêu cầu cập nhật đơn hàng lên server
                 await axios.put(`${ordersAPI}/${orderId}`, updatedOrder);
-    
+
                 // Cập nhật state với đơn hàng mới
                 setOrders(orders.map(order => (order.id === orderId ? updatedOrder : order)));
             }
@@ -249,17 +257,16 @@ const ShopContextProvider = (props) => {
             console.error("Error updating product quantity:", error);
         }
     };
-    
 
     const removeFromCart = async (orderId, productId) => {
         try {
             // Tìm đơn hàng dựa trên orderId
             const order = orders.find(order => order.id === orderId);
-    
+
             if (order) {
                 // Lọc bỏ sản phẩm có productId cần xóa khỏi giỏ hàng
                 const updatedProducts = order.products.filter(product => product.productId !== productId);
-    
+
                 // Nếu sau khi xóa sản phẩm mà đơn hàng vẫn còn sản phẩm khác
                 if (updatedProducts.length > 0) {
                     // Tính lại tổng giá tiền dựa trên các sản phẩm còn lại
@@ -267,19 +274,19 @@ const ShopContextProvider = (props) => {
                         const productData = products.find(p => p.id === product.productId);
                         return total + (productData ? productData.price * product.quantity : 0);
                     }, 0);
-    
+
                     // Cập nhật đơn hàng với sản phẩm và tổng giá tiền mới
                     const updatedOrder = { ...order, products: updatedProducts, totalPrice: updatedTotalPrice };
-    
+
                     // Gửi yêu cầu cập nhật đơn hàng lên server
                     await axios.put(`${ordersAPI}/${orderId}`, updatedOrder);
-    
+
                     // Cập nhật state với đơn hàng mới
                     setOrders(orders.map(order => (order.id === orderId ? updatedOrder : order)));
                 } else {
                     // Nếu không còn sản phẩm nào trong đơn hàng, xóa đơn hàng
                     await axios.delete(`${ordersAPI}/${orderId}`);
-    
+
                     // Cập nhật state để loại bỏ đơn hàng khỏi giỏ hàng và đơn hàng
                     setCart(prevCart => {
                         const updatedCart = { ...prevCart };
@@ -293,11 +300,35 @@ const ShopContextProvider = (props) => {
             console.error("Error deleting item:", error);
         }
     };
-    
 
+    const sendEmail = async () => {
+        
+
+        const serviceId = 'service_idcd6zm'
+        const templateId = 'template_egye8bc'
+        const publicKey = 'Wx1yXJrCO16ReBb_M'
+
+        const templateParams = {
+            from_name: 'ĐHKNStore',
+            from_email: 'vutuankien2004@gmail.com',
+            to_name: 'Djt cu may',
+            to_email: '22010466@st.phenikaa-uni.edu.vn',
+            message: 'dcm phong ban'
+        }
+
+        emailjs.send(serviceId, templateId, templateParams,publicKey)
+            .then(response => {
+                console.log("send email successfully",response)
+
+            })
+            .catch(error => {
+                console.error("send email failed:", error);
+            });
+
+    }
 
     const value = {
-        navigate, currency, responsive, products, orders, AddToCart, getQuantity, setOrders, increaseQuantity, decreaseQuantity, removeFromCart,search,setSearch,showSearch,setShowSearch,ordersAPI,billAPI,setOrders,
+        navigate, currency, responsive, products, orders, AddToCart, getQuantity, increaseQuantity, decreaseQuantity, removeFromCart, search, setSearch, showSearch, setShowSearch, ordersAPI, billAPI, setOrders, blogs,sendEmail,
         users
     };
     return (

@@ -73,7 +73,15 @@ import menu_dat_hang_value from './MENU_DAT_HANG_VALUE.jpg';
 import error from './comic-lettering-oops-comic-speech-bubble-with-emotional-text-oops-bright-dynamic-cartoon-illustration-in-retro-pop-art-style-comic-text-sound-effects-png.webp'
 import qrcode from "./qrcode.png"
 import qrbank from "./qrbank.jpg"
+import septemberDiscount from './nsp_thang_9_1070x750px-01.jpg'
+import downloadApp from './tai_app_nhan_khoai_tay_1070x750px-01-01.jpg'
+import birthday from './tlj_1070x750px-01.jpg'
+import hotCake from './zalo_oa_b_nh_chi_n2-01.jpg'
 export const assets = {
+    septemberDiscount,
+    downloadApp,
+    birthday,
+    hotCake,
     qrbank,
     qrcode,
     error,
