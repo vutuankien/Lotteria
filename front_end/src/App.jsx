@@ -4,7 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/Navbar/Navbar";
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import Discount from "./pages/Discount";
+import Parent from "./pages/Parent"
 import Store from "./pages/Store";
+import BrandStory from "./pages/BrandStory";
+import Franchise from "./pages/Fran";
+import Care from "./pages/Care";
 import BestSeller from "./pages/BestSeller";
 import Drink from "./pages/Drink";
 import FastFood from "./pages/FastFood";
@@ -76,6 +80,11 @@ function App() {
       <Routes>
         {/* Kiểm tra trạng thái đăng nhập */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/Parent" element={<Parent />} />
+        <Route path="/Store"element={<Store />}/>
+        <Route path="/Fran"element={<Franchise />}/>
+        <Route path="/BrandStory"element={<BrandStory />}/>
+        <Route path="/Care" element={<Care />} />
         <Route path="/register" element={<Register />} />
         <Route
           path="/"

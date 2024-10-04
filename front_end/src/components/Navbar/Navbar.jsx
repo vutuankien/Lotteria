@@ -108,8 +108,8 @@ const NavBar = () => {
                 <p className="text-uppercase fs-5 px-2">Khuyến mãi</p>
               </NavLink>
               <NavLink
-                to="/store"
-                onClick={() => handleClick("store")}
+                to="/Parent"
+                onClick={() => handleClick("Parent")}
                 className={`text-decoration-none fw-bold d-flex flex-column align-items-center ${
                   activePage === "store"
                     ? "text-danger underline"

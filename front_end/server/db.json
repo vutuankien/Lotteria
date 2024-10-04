@@ -559,6 +559,40 @@
         "status": "Shipped"
       },
       "id": "f555"
+    },
+    {
+      "0": {
+        "orderId": "74e7",
+        "userId": "06ed",
+        "products": [
+          {
+            "productId": "1",
+            "quantity": 1,
+            "price": 87
+          }
+        ],
+        "totalPrice": 87,
+        "time": "17:10:35 04/10/2024",
+        "status": "Shipped"
+      },
+      "id": "3b3a"
+    },
+    {
+      "0": {
+        "orderId": "3581",
+        "userId": "06ed",
+        "products": [
+          {
+            "productId": "2",
+            "quantity": 1,
+            "price": 95
+          }
+        ],
+        "totalPrice": 95,
+        "time": "17:11:10 04/10/2024",
+        "status": "Shipped"
+      },
+      "id": "ff17"
     }
   ],
   "UsersAccount": [
@@ -641,6 +675,18 @@
       "fullName": "kiên vũ",
       "email": "vutuankien2004@gmail.com",
       "photoURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAAA3NCSVQICAjb4U/gAAAABmJLR0QAqwBHALxJtnEaAAABSklEQVR4nO3aMUrEQABA0WT1FmIhiLbiJcTOK9jZiAfzADba2ngED2AriFi5sVtQ0deE3S3+6wKTyfAz0814e3Y/5G+LTS9g2xUICgQFggJBgaBAUCAoEBQICgQFggJBgaBAUCAoEBQICgQFggJBgaBAUCAoEBQICgQFggLB7hq+cXC+d3p9PPu0r89vDzdPs0/7wzoCjYthXIzzT7sz/5y/dcRgHTtoWg7Tcvp/zDiM337WNEwTXpk+MWAW45bcMDu5Ojq82F89vr983F0+bnA9Kx0xKBAUCAoEBYICQYGgQFAgKBAUCAoEBYICQYGgQFAgKBAUCAoEBYICQYGgQFAgKBAUCAoEBYICQYGgQLAtF6i2VjsICgQFggJBgaBAUCAoEBQICgQFggJBgaBAUCAoEBQICgQFggJBgaBAUCAoEBQICgQFggLBF9XmHc6/2WQhAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "c117",
+      "fullName": "Ngọc Hồng",
+      "email": "dangngoc28082004@gmail.com",
+      "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIYEQ2HLbTC8bWDJbxQWUdLVUgQIh2j1lhD5Tso47wbQmxrBA=s96-c"
+    },
+    {
+      "id": "06ed",
+      "fullName": "kiên vũ",
+      "email": "vutuankien030904@gmail.com",
+      "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJPnF6Dnx_ILdYrYwc_29IYEvZFePa6BOrQKxCzn8OtV3cDLdo=s96-c"
     }
   ],
   "address": [
@@ -672,5 +718,206 @@
       "email": "nguyenthehung.2004hd@gmail.com"
     }
   ],
-  "feedbacks": []
+  "feedbacks": [],
+  "stores": [
+    {
+      "name": "Lotteria Trần Thái Tông",
+      "address": "101 Trần Thái Tông, Cầu Giấy, Hà Nội",
+      "location": {
+        "lat": 21.031029,
+        "lng": 105.789824
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "d143"
+    },
+    {
+      "name": "Lotteria Hoàng Quốc Việt",
+      "address": "226 Hoàng Quốc Việt, Cầu Giấy, Hà Nội",
+      "location": {
+        "lat": 21.047331,
+        "lng": 105.785
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "7d61"
+    },
+    {
+      "name": "Lotteria Nguyễn Khánh Toàn",
+      "address": "2A Nguyễn Khánh Toàn, Cầu Giấy, Hà Nội",
+      "location": {
+        "lat": 21.033754,
+        "lng": 105.799499
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "83e8"
+    },
+    {
+      "name": "Lotteria Big C Thăng Long",
+      "address": "222 Trần Duy Hưng, Cầu Giấy, Hà Nội",
+      "location": {
+        "lat": 21.016694,
+        "lng": 105.792937
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "c66a"
+    },
+    {
+      "name": "Lotteria Láng Hạ",
+      "address": "85 Láng Hạ, Đống Đa, Hà Nội",
+      "location": {
+        "lat": 21.017889,
+        "lng": 105.812101
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "ee3e"
+    },
+    {
+      "name": "Lotteria Vincom Bà Triệu",
+      "address": "191 Bà Triệu, Hai Bà Trưng, Hà Nội",
+      "location": {
+        "lat": 21.011083,
+        "lng": 105.848359
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "bc0e"
+    },
+    {
+      "name": "Lotteria Times City",
+      "address": "458 Minh Khai, Hai Bà Trưng, Hà Nội",
+      "location": {
+        "lat": 20.993501,
+        "lng": 105.87056
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "8f68"
+    },
+    {
+      "name": "Lotteria Aeon Mall Long Biên",
+      "address": "27 Cổ Linh, Long Biên, Hà Nội",
+      "location": {
+        "lat": 21.028399,
+        "lng": 105.914933
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "034d"
+    },
+    {
+      "name": "Lotteria Hà Đông",
+      "address": "Tầng 5, TTTM Mê Linh Plaza Hà Đông, Tô Hiệu, Hà Đông, Hà Nội",
+      "location": {
+        "lat": 20.959961,
+        "lng": 105.766713
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "24a7"
+    },
+    {
+      "name": "Lotteria Văn Quán",
+      "address": "60 Nguyễn Khuyến, Văn Quán, Hà Đông, Hà Nội",
+      "location": {
+        "lat": 20.963222,
+        "lng": 105.771481
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "5571"
+    },
+    {
+      "name": "Lotteria Hồ Gươm Plaza",
+      "address": "Tầng 1, Hồ Gươm Plaza, Trần Phú, Hà Đông, Hà Nội",
+      "location": {
+        "lat": 20.975005,
+        "lng": 105.786738
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "0f7a"
+    },
+    {
+      "name": "Lotteria Nguyễn Huệ",
+      "address": "1 Nguyễn Huệ, Quận 1, Thành Phố Hồ Chí Minh",
+      "location": {
+        "lat": 10.773377,
+        "lng": 106.704095
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "9ee4"
+    },
+    {
+      "name": "Lotteria Lý Tự Trọng",
+      "address": "20 Lý Tự Trọng, Quận 1, Thành Phố Hồ Chí Minh",
+      "location": {
+        "lat": 10.776065,
+        "lng": 106.698243
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "5ef7"
+    },
+    {
+      "name": "Lotteria Trần Hưng Đạo",
+      "address": "35 Trần Hưng Đạo, Quận 5, Thành Phố Hồ Chí Minh",
+      "location": {
+        "lat": 10.758643,
+        "lng": 106.67954
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "1d9e"
+    },
+    {
+      "name": "Lotteria Cộng Hòa",
+      "address": "230 Cộng Hòa, Tân Bình, Thành Phố Hồ Chí Minh",
+      "location": {
+        "lat": 10.801426,
+        "lng": 106.652878
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "711e"
+    },
+    {
+      "name": "Lotteria Phan Xích Long",
+      "address": "153 Phan Xích Long, Phú Nhuận,Thành Phố Hồ Chí Minh",
+      "location": {
+        "lat": 10.800213,
+        "lng": 106.687713
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "5161"
+    },
+    {
+      "name": "Lotteria Pearl Plaza",
+      "address": "561A Điện Biên Phủ, Bình Thạnh, Thành Phố Hồ Chí Minh",
+      "location": {
+        "lat": 10.803973,
+        "lng": 106.72102
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "1ef3"
+    },
+    {
+      "name": "Lotteria Aeon Mall Tân Phú",
+      "address": "30 Bờ Bao Tân Thắng, Tân Phú, Thành Phố Hồ Chí Minh",
+      "location": {
+        "lat": 10.80599,
+        "lng": 106.624613
+      },
+      "openingHours": "08:00",
+      "closingHours": "22:00",
+      "id": "764d"
+    }
+  ]
+
 }
