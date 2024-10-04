@@ -1,59 +1,61 @@
 /* Sửa vị trí và z-index của Navbar */
 .Navbar {
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    /* Đảm bảo navbar luôn ở trên cùng */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Đảm bảo navbar luôn ở trên cùng */
 }
 
 /* Đảm bảo phần nội dung không bị che */
 body,
 .content {
-    margin-top: 70px;
-    /* Chiều cao của navbar */
-    /* overflow-y: auto; */
+  margin-top: 70px;
+  /* Chiều cao của navbar */
+  /* overflow-y: auto; */
 }
 
 /* Kiểm tra chiều cao của phần tử menu trên di động */
 .mobile-menu {
-    height: 100vh;
-
+  height: 100vh;
 }
 
-
 .menu-icon:hover {
-    background-color: #ccc;
-    transition: 0.2s ease-in-out;
+  background-color: #ccc;
+  transition: 0.2s ease-in-out;
 }
 
 .underline {
-    border-bottom: 2px solid red;
+  border-bottom: 2px solid red;
 }
 
 .mobile-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: white;
-    /* z-index: 9; */
-    /* overflow-y: auto; */
-    display: none;
-    transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  /* z-index: 9; */
+  /* overflow-y: auto; */
+  display: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .mobile-menu.open {
-    display: block;
+  display: block;
 }
 
 .underline {
-    border-bottom: 2px solid red;
+  border-bottom: 2px solid red;
 }
 
 @media (min-width: 768px) {
-    .mobile-menu {
-        display: none;
-    }
+  .mobile-menu {
+    display: none;
+  }
+}
+
+.gap_nav {
+  gap: 360px;
 }

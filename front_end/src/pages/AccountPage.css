@@ -1,0 +1,50 @@
+.account-layout {
+  display: flex;
+  padding-top: 85px;
+  width: 780px;
+  height: 630px;
+  border-radius: 15px;
+}
+
+.sidebar {
+  width: 30%;
+  background-color: #f04d56;
+  padding: 20px;
+  color: white;
+  display: flex;
+  box-sizing: border-box;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.content {
+  width: 70%;
+
+  margin: 0;
+  background-color: #f8f9fa;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.menu-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-link:hover {
+  background-color: #fa8285;
+}

@@ -1,23 +1,137 @@
-import React, { useContext } from 'react'
-import { ShopContext } from '../Context/ShopContext'
-const Login = () => {
+import React, { useState } from "react";
+import "./Login.css";
+import { signInWithGoogle, loginWithEmail } from "./Firebase";
+import { useNavigate } from "react-router-dom";
 
-  const {navigate} = useContext(ShopContext)
+function Login({ onLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isAdminMode, setIsAdminMode] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const adminEmail = "nguyenthehung.2004hd@gmail.com"; // Email của admin
+
+  // Xử lý đăng nhập bằng email và mật khẩu
+  const handleEmailLogin = async (e) => {
     e.preventDefault();
-    // navigate('/homepage'); 
-    // onLogin()
+    try {
+      // Nếu ở chế độ admin và email không phải của admin thì từ chối đăng nhập
+      if (isAdminMode && email !== adminEmail) {
+        alert("Bạn không có quyền truy cập vào chế độ admin.");
+        return;
+      }
+
+      // Đăng nhập bình thường cho user hoặc admin
+      const user = await loginWithEmail(email, password);
+      if (user) {
+        localStorage.setItem("userInfo", JSON.stringify(user)); // Lưu thông tin người dùng vào localStorage
+        onLogin();
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Error logging in with email:", error);
+    }
+  };
+
+  // Xử lý đăng nhập bằng Google
+  const handleGoogleSignIn = async () => {
+    try {
+      const user = await signInWithGoogle();
+      if (user) {
+        // Nếu ở chế độ admin và email của tài khoản Google không phải của admin thì từ chối đăng nhập
+        if (isAdminMode && user.email !== adminEmail) {
+          alert("Bạn không có quyền truy cập vào chế độ admin.");
+          return;
+        }
+
+        // Đăng nhập bình thường cho user hoặc admin
+        localStorage.setItem("userInfo", JSON.stringify(user));
+        onLogin();
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Google Sign-In Error:", error);
+      alert("Đăng nhập bằng Google không thành công, vui lòng thử lại.");
+    }
+  };
+
+  // Xử lý chuyển hướng đến trang quên mật khẩu
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
+  };
+
+  // Xử lý chuyển hướng đến trang tạo tài khoản mới
+  const handleRegister = () => {
+    navigate("/register");
+  };
+
+  // Xử lý chuyển chế độ giữa người dùng và admin
+  const toggleAdminMode = () => {
+    setIsAdminMode(!isAdminMode);
   };
 
   return (
-    <div style={{ height: '100vh' }} className='w-100 d-flex bg-dark  flex-column gap-5 align-items-center justify-content-center'>
-      <div className='border border-light rounded-4 shadow bg-white d-flex flex-column p-3 justify-content-center align-items-center' style={{width:'400px'}}>
-        <p className='fs-3 fw-bolder'>Login to continue</p>
-        <button className='bg-primary rounded-2 text-white shadow-lg' onClick={handleSubmit}>Login</button>
+    <div className="login-container">
+      <div className="login-form">
+        <h2 className="text-0">Đăng nhập</h2>
+
+        <button className="toggle-mode-btn" onClick={toggleAdminMode}>
+          {isAdminMode ? "Admin" : "User"}
+        </button>
+
+        <form onSubmit={handleEmailLogin}>
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="Nhập email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <label>Mật khẩu</label>
+          <input
+            type="password"
+            placeholder="Nhập mật khẩu"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <div className="action-buttons">
+            <button
+              type="button"
+              onClick={handleForgotPassword}
+              className="action-btn"
+            >
+              Quên mật khẩu?
+            </button>
+            <button
+              type="button"
+              onClick={handleRegister}
+              className="action-btn"
+            >
+              Tạo tài khoản
+            </button>
+          </div>
+          <button type="submit" className="login-btn">
+            Đăng nhập
+          </button>
+        </form>
+        <p className="text-1">hoặc Đăng nhập bằng</p>
+        <div className="social-login">
+          <button className="google-btn" onClick={handleGoogleSignIn}>
+            GOOGLE
+          </button>
+        </div>
+      </div>
+      <div className="banner-img">
+        <img
+          src="https://th.bing.com/th/id/R.939539618b114aae1546c478ee95cd70?rik=G09qZmQz9iucDQ&pid=ImgRaw&r=0"
+          alt="banner"
+        />
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
