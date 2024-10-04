@@ -59,11 +59,13 @@ const NextStep = () => {
   };
 
   const handleClick = async () => {
+    // Hiển thị thông báo thanh toán
     setSwalProps({
       show: true,
       icon: method === "Cash" ? "success" : "info",
     });
 
+    // Copy Bill
     const updatedBills = [...bill];
 
     for (const order of orders) {
@@ -121,6 +123,10 @@ const NextStep = () => {
     } catch (error) {
       console.error("Error:", error);
     }
+
+
+      // Hiển thị email
+      sendEmail()
   };
 
   return (

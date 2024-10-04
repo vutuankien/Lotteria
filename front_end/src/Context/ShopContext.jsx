@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
 
 export const ShopContext = createContext();
 
@@ -78,7 +79,7 @@ const ShopContextProvider = (props) => {
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/Blogs")
+      .get("http://localhost:5000/Blogs")
       .then((response) => setBlogs(response.data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
