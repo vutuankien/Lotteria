@@ -119,7 +119,7 @@ const ShopContextProvider = (props) => {
 
       // Kiểm tra xem đã có đơn hàng cho userId này chưa
       const existingOrderIndex = orders.findIndex(
-        (order) => order.userId === userId && order.status === "Shipped"
+        (order) => order.userId === userId && order.status === "Shipping"
       );
       let newOrder;
 
@@ -181,7 +181,7 @@ const ShopContextProvider = (props) => {
             minute: "2-digit",
             second: "2-digit",
           }),
-          status: "Shipped",
+          status: "Shipping",
         };
 
         // Gửi yêu cầu POST để tạo đơn hàng mới
