@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header style={{ borderBottom: '1px solid #ccc', position: 'sticky', top: 0, zIndex: 1000 }}>
       <div className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/admin">
           <img
             src="https://www.lotteria.vn/grs-static/images/lotteria_logo.png"
             alt="Lotteria Logo"

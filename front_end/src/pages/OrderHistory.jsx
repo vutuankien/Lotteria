@@ -15,14 +15,14 @@ const OrderHistory = () => {
 
       // Chuyển đổi dữ liệu thành mảng và trích xuất thông tin của người dùng
       const userOrders = Object.values(data)
-        .filter((order) => order[0].userId === userInfo.id)
+        .filter((order) => order.userId === userInfo.id && order.status === 'Shipped') // Lọc theo userId và status 'shipped'
         .map((order) => ({
           id: order.id,
-          orderId: order[0].orderId,
-          total: order[0].totalPrice,
-          status: order[0].status,
-          time: order[0].time,
-          products: order[0].products,
+          orderId: order.orderId,
+          total: order.totalPrice,
+          status: order.status,
+          time: order.time,
+          products: order.products,
         }));
 
       setOrders(userOrders);
@@ -53,7 +53,7 @@ const OrderHistory = () => {
                         <strong>Order #{order.orderId}</strong>
                       </p>
                       <p>Status: {order.status}</p>
-                      <p>Total: {order.total} USD</p>
+                      <p>Total: {order.total}.000 VNĐ</p>
                       <p>Time: {order.time}</p>{" "}
                     </div>
                     <div className="product-list">
@@ -62,7 +62,7 @@ const OrderHistory = () => {
                         {order.products.map((product, index) => (
                           <li key={index}>
                             Product ID: {product.productId}, Quantity:{" "}
-                            {product.quantity}, Price: {product.price} USD
+                            {product.quantity}, Price: {product.price}.000 VNĐ
                           </li>
                         ))}
                       </ul>
