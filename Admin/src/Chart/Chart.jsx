@@ -1,23 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
-import { ShopContext } from "../../../front_end/src/Context/ShopContext";
 
 const LineChart = () => {
-  // const { billAPI } = useContext(ShopContext);
-  const api = 'http://localhost:3000/Bills'
-  const [bill, setBill] = useState([]);
+  const api = 'http://localhost:5000/Bills';
+  const [bills, setBills] = useState([]); // Đổi tên state từ 'bill' thành 'bills'
 
   useEffect(() => {
     axios
       .get(api)
-      .then((res) => setBill(res.data))  // Truy cập vào 'Bills' trong dữ liệu trả về
+      .then((res) => setBills(res.data))  // Lưu dữ liệu vào state
       .catch((err) => console.log(err));
   }, []);
 
+  // Lọc hóa đơn có trạng thái 'Shipped'
+  const shippedBills = bills.filter(bill => bill.status === 'Shipped');
+
   // Lấy dữ liệu labels và totalPrice từ API
-  const labels = bill.map((item) => item["0"].time.split(" ")[1]); // Sử dụng thời gian làm label
+  const labels = shippedBills.map((item) => {
+    const dateParts = item.time.split(" ")[1].split('/'); // Lấy phần ngày
+    return `${dateParts[0]}/${dateParts[1]}`; // Định dạng lại thành dd/MM
+  });
+
   const data = {
     labels: labels,
     datasets: [
@@ -25,7 +30,7 @@ const LineChart = () => {
         label: "Thu nhập các ngày",
         backgroundColor: "rgb(255, 99, 132)",
         borderColor: "rgb(255, 99, 132)",
-        data: bill.map((item) => item["0"].totalPrice),  // Truy cập 'totalPrice' từ '0'
+        data: shippedBills.map((item) => item.totalPrice),  // Truy cập trực tiếp vào 'totalPrice'
       },
     ],
   };

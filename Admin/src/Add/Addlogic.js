@@ -3,11 +3,12 @@ import { useState, useRef } from "react";
 const useAddProduct = () => {
   const [imagePreview, setImagePreview] = useState("");
   const [productName, setProductName] = useState("");
-  const [productOldPrice, setOldPrice] = useState(""); // Đổi tên thành productOldPrice
-  const [productNewPrice, setNewPrice] = useState(""); // Thêm productNewPrice
-  const [isBestSeller, setIsBestSeller] = useState(false);
+  const [productOldPrice, setOldPrice] = useState("");
+  const [productNewPrice, setNewPrice] = useState("");
+  const [category, setCategory] = useState("");
+  const [subCategory, setSubCategory] = useState(""); // subCategory có thể không chọn
   const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // State for error messages
+  const [errorMessage, setErrorMessage] = useState("");
   const inputFileRef = useRef(null);
 
   // Function to handle change in old price
@@ -15,7 +16,6 @@ const useAddProduct = () => {
     const price = event.target.value;
     setOldPrice(price);
 
-    // Check if old price is a positive number
     if (price <= 0) {
       setErrorMessage("Giá cũ phải lớn hơn 0.");
     } else {
@@ -28,7 +28,6 @@ const useAddProduct = () => {
     const price = event.target.value;
     setNewPrice(price);
 
-    // Check if new price is a positive number
     if (price <= 0) {
       setErrorMessage("Giá mới phải lớn hơn 0.");
     } else {
@@ -72,20 +71,25 @@ const useAddProduct = () => {
   };
 
   const validateInputs = async () => {
-    // Check if the old price and new price have already been validated by handleChange
     if (productOldPrice <= 0 || productNewPrice <= 0) {
       return false;
     }
 
-    // Check if an image has been uploaded
     if (!imagePreview) {
       setErrorMessage("Vui lòng tải ảnh lên.");
       return false;
     }
 
-    // Check for duplicate product names in db.json
+    if (!category) {
+      setErrorMessage("Vui lòng chọn danh mục.");
+      return false;
+    }
+
+    // Không kiểm tra subCategory ở đây
+    // Chúng ta có thể để trống subCategory mà không có lỗi
+
     try {
-      const response = await fetch('http://localhost:3000/Foods');
+      const response = await fetch('http://localhost:5000/Foods');
       const products = await response.json();
 
       const productExists = products.some(product => product.name === productName);
@@ -103,25 +107,32 @@ const useAddProduct = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // Clear any previous error message
     setErrorMessage("");
 
-    // Validate inputs
     const isValid = await validateInputs();
     if (!isValid) return;
 
-    const newProduct = {
-      id: Date.now().toString(), // Tạo id duy nhất cho sản phẩm
-      name: productName,
-      price: parseFloat(productNewPrice), // Lưu giá mới vào price
-      oldPrice: parseFloat(productOldPrice),
-      image: imagePreview,
-      category: isBestSeller ? "BestSeller" : "Regular", // Xác định loại sản phẩm
-    };
-
     try {
-      const response = await fetch('http://localhost:3000/Foods', { 
+      // Fetch all products to find the maximum ID
+      const response = await fetch('http://localhost:5000/Foods');
+      const products = await response.json();
+
+      // Get the maximum ID and create a new ID
+      const maxId = products.length ? Math.max(...products.map(product => parseInt(product.id))) : 0;
+      const newProductId = (maxId + 1).toString(); // Chuyển ID mới thành chuỗi
+
+
+      const newProduct = {
+        id: newProductId, // Use new product ID
+        name: productName,
+        price: parseFloat(productNewPrice),
+        oldPrice: parseFloat(productOldPrice),
+        image: imagePreview,
+        category: category,
+        subCategory: subCategory || "", // Lưu subCategory, nếu không có thì để trống
+      };
+
+      const addResponse = await fetch('http://localhost:5000/Foods', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -129,12 +140,12 @@ const useAddProduct = () => {
         body: JSON.stringify(newProduct)
       });
 
-      if (!response.ok) {
+      if (!addResponse.ok) {
         throw new Error('Network response was not ok');
       }
 
-      const result = await response.json();
-      console.log('Product added:', result);
+      // const result = await addResponse.json();
+      // console.log('Product added:', result);
 
       setSuccessMessage('Sản phẩm đã được thêm thành công!');
 
@@ -143,9 +154,10 @@ const useAddProduct = () => {
       }, 3000);
 
       setProductName("");
-      setOldPrice(""); // Reset old price
-      setNewPrice(""); // Reset new price
-      setIsBestSeller(false);
+      setOldPrice("");
+      setNewPrice("");
+      setCategory("");
+      setSubCategory(""); // Reset subCategory
       clearImage();
     } catch (error) {
       console.error('Error adding product:', error);
@@ -158,12 +170,14 @@ const useAddProduct = () => {
     clearImage,
     productName,
     setProductName,
-    productOldPrice, // Thêm productOldPrice vào return
-    handleOldPriceChange, // Thêm hàm xử lý cho oldPrice
-    productNewPrice, // Thêm productNewPrice vào return
-    handleNewPriceChange, // Thêm hàm xử lý cho newPrice
-    isBestSeller,
-    setIsBestSeller,
+    productOldPrice,
+    handleOldPriceChange,
+    productNewPrice,
+    handleNewPriceChange,
+    category,
+    setCategory,
+    subCategory,
+    setSubCategory,
     handleSubmit,
     inputFileRef,
     successMessage,

@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2";
 import axios from "axios";
 
 const QuantityChart = () => {
-    const api = 'http://localhost:3000/Bills';  // API của bạn
+    const api = 'http://localhost:5000/Bills';  // API của bạn
     const [bills, setBills] = useState([]);
     const [productQuantities, setProductQuantities] = useState({});
 
@@ -19,14 +19,19 @@ const QuantityChart = () => {
     useEffect(() => {
         const quantities = {};
 
+        // Duyệt qua từng hóa đơn
         bills.forEach(bill => {
-            bill["0"].products.forEach(product => {
-                if (quantities[product.productId]) {
-                    quantities[product.productId] += product.quantity;
-                } else {
-                    quantities[product.productId] = product.quantity;
-                }
-            });
+            // Kiểm tra trạng thái của hóa đơn
+            if (bill.status === 'Shipped') {
+                // Duyệt qua sản phẩm trong hóa đơn
+                bill.products.forEach(product => {  
+                    if (quantities[product.productId]) {
+                        quantities[product.productId] += product.quantity;
+                    } else {
+                        quantities[product.productId] = product.quantity;
+                    }
+                });
+            }
         });
 
         setProductQuantities(quantities);

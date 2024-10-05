@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header style={{ borderBottom: '1px solid #ccc' }}> {/* Inline style for border */}
+    <header style={{ borderBottom: '1px solid #ccc', position: 'sticky', top: 0, zIndex: 1000 }}>
       <div className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/">
           <img

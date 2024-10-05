@@ -3,9 +3,23 @@
     color : black;
     width : 200px;
     border: 1px solid #ced4da;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 .submit:hover{
     background-color: #dc3545;
     color : #fff;
 }
+
+
+/* .form-select>option {
+    background-color: white; 
+    color: black; 
+}
+
+.form-select>option:hover{
+    background-color: #dc3545; 
+    color: white; 
+} */
+

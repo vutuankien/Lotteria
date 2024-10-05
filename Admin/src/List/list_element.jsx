@@ -1,29 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 const ListElement = ({ product, onDelete }) => {
   const { id, name, price, oldPrice, image, category } = product;
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsVisible(true);
+    }, 80 * id); 
+
+    return () => clearTimeout(timeoutId);
+  }, [id]);
 
   const handleDelete = async () => {
-    if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')) {
+    const confirmation = window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');
+    if (confirmation) {
       try {
-        await axios.delete(`http://localhost:3000/Foods/${id}`);
-        onDelete(id);
+        const response = await axios.delete(`http://localhost:5000/Foods/${id}`);
+        if (response.status === 200) {
+          onDelete(id); // Xóa sản phẩm thành công
+        } else {
+          console.error('Error deleting product:', response.data);
+        }
       } catch (error) {
-        console.error('Error deleting product:', error);
+        console.error('Error deleting product:', error.response ? error.response.data : error.message);
       }
     }
   };
 
   return (
-    <Card className="list-element my-3 shadow-sm rounded p-0" style={{ width : '100%', position: 'relative' }}>
-      <div className="product-row d-flex align-items-center py-1 px-2 border text-sm" style={{ width : '100%'}}>
+    <Card 
+      className="list-element my-3 shadow-sm rounded p-0" 
+      style={{
+        width: '100%', 
+        position: 'relative', 
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(20px)', 
+        transition: 'opacity 0.5s ease, transform 0.5s ease'
+      }}
+    >
+      <div className="product-row d-flex align-items-center py-1 px-2 border text-sm" style={{ width: '100%' }}>
         <p className="mb-0 d-flex align-items-center justify-content-start" style={{ flex: '1 1 20%' }}>
           <img
             src={image}
             alt={name}
-            className="w-12"
             style={{ width: '50%', height: '50px', objectFit: 'cover' }}
           />
         </p>
@@ -54,7 +76,7 @@ const ListElement = ({ product, onDelete }) => {
           top: '10px',
           right: '10px',
           cursor: 'pointer',
-          textDecoration : 'none'
+          textDecoration: 'none',
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = '#dc3545';
@@ -62,13 +84,11 @@ const ListElement = ({ product, onDelete }) => {
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.backgroundColor = 'white';
-          e.currentTarget.style.color = 'red';
+          e.currentTarget.style.color = '#dc3545';
         }} 
       >
         &times;
       </Button>
-
-
     </Card>
   );
 };
