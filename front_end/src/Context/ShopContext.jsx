@@ -30,7 +30,6 @@ const ShopContextProvider = (props) => {
 
     fetchAddresses();
   }, []);
-
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const responsive = {
@@ -371,6 +370,26 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  const sendEmail = () => {
+    const serviceId = 'service_idcd6zm'
+    const templateId = 'template_egye8bc'
+    const publicKey = 'Wx1yXJrCO16ReBb_M'
+
+    const template_params = {
+      from_name: 'Lotteria Store',
+      from_email: 'vutuankien2004@gmail.com',
+      to_name: currentUser.fullName,
+      to_email: currentUser.email,
+      message: 'Đơn hàng của quý khách đã được xác nhận, chúc quý khách một bữa ăn vui vẻ'
+    }
+    emailjs.send(serviceId, templateId, template_params, publicKey)
+      .then((response) => {
+        console.log('Email sent successfully!', response.status);
+      })
+      .catch((error) => {
+        console.log('Email sending failed!', error);
+      });
+  }
   const value = {
     navigate,
     currency,
@@ -389,11 +408,11 @@ const ShopContextProvider = (props) => {
     setShowSearch,
     ordersAPI,
     billAPI,
-    setOrders,
     blogs,
     users,
     currentUser,
     addresses,
+    sendEmail
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
