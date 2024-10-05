@@ -118,7 +118,7 @@ const Cart = () => {
   };
 
   return (
-    <div style={{ marginTop: "500px", paddingTop: "640px" }}>
+    <div style={{ marginTop: "850px" }}>
       <Container>
         {/*Render products*/}
         <Row className="d-flex justify-content-between flex-sm-row flex-column">
@@ -126,7 +126,7 @@ const Cart = () => {
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center gap-4">
                 <hr />
-                <h1 className="fs-2 text-danger">
+                <h1 className="fs-2 text-danger fw-bold">
                   Giỏ hàng của bạn{" "}
                   <span className="fs-4 text-black d-none d-sm-inline-block">
                     ({getQuantity()} sản phẩm)

@@ -7,6 +7,7 @@ import { assets } from "../assets/assetss";
 import axios from "axios";
 import Footer from "../components/Footer/Footer";
 import PolicyFooter from "../components/Policy_Footer/PolicyFooter";
+import emailjs from "@emailjs/browser";
 
 const NextStep = () => {
   const [method, setMethod] = useState("Cash");
@@ -18,13 +19,11 @@ const NextStep = () => {
     setOrders,
     ordersAPI,
     navigate,
-    sendEmail
   } = useContext(ShopContext);
   const [swalProps, setSwalProps] = useState({});
   const [bill, setBill] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   const [userAddress, setUserAddress] = useState(null);
-
   useEffect(() => {
     // Lấy thông tin người dùng từ localStorage
     const localUserInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -59,6 +58,34 @@ const NextStep = () => {
     }
   };
 
+  const sendEmail = () => {
+    const serviceId = 'service_idcd6zm';
+    const templateId = 'template_egye8bc';
+    const publicKey = 'Wx1yXJrCO16ReBb_M';
+  
+    // Ensure currentUser is defined and has necessary properties
+    if (!userInfo || !userInfo.fullName || !userInfo.email) {
+      console.error('User information is missing');
+      return;
+    }
+  
+    const template_params = {
+      from_name: 'HĐKNLotteria Store',
+      from_email: 'vutuankien2004@gmail.com',
+      to_name: userInfo.fullName,
+      to_email: userInfo.email,
+      message: 'Đơn hàng của quý khách đã được xác nhận, chúc quý khách một bữa ăn vui vẻ !!!'
+    };
+  
+    // Ensure emailjs is loaded and ready before sending
+    emailjs.send(serviceId, templateId, template_params, publicKey)
+        .then((response) => {
+          console.log('Email sent successfully!', response.status);
+        })
+        .catch((error) => {
+          console.log('Email sending failed!', error);
+        });
+  };
   const handleClick = async () => {
     // Hiển thị thông báo thanh toán
     setSwalProps({

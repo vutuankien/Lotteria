@@ -6,7 +6,7 @@ const BrandStory = () => {
   return (
     <div class="Bra-Sto">
       <div class="Bra">
-        <h2>GIỚI THIỆU VỀ LOTTERIA VIỆT NAM</h2>
+        <h2 className="bg-transparent">GIỚI THIỆU VỀ LOTTERIA VIỆT NAM</h2>
         <p>
           Lotteria là chuỗi nhà hàng thức ăn nhanh trực thuộc tập đoàn Lotte –
           một trong năm tập đoàn lớn nhất Hàn Quốc. Suốt 7 năm liền đứng vị trí

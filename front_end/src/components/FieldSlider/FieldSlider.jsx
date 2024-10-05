@@ -67,7 +67,7 @@ const FieldSlider = () => {
     setSelected(id);
   };
   return (
-    <div style={{ marginTop: "350px" }}>
+    <div style={{marginTop:'100px'}}>
       <Carousel fade className="z-0" responsive={responsive}>
         {cards.map((item, index) => (
           <Link
@@ -94,7 +94,7 @@ const FieldSlider = () => {
                 }}
                 src={item.img}
               />
-              <h2 className="text-center fs-6">{item.title}</h2>
+              <h2 className="text-center fs-6 bg-transparent">{item.title}</h2>
             </div>
           </Link>
         ))}
