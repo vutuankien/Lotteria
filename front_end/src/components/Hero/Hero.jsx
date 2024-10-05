@@ -18,7 +18,7 @@ const Hero = () => {
                         }} />
                         <p className='text-lg-center fs-2 text-uppercase fw-medium'>Best Seller</p>
                     </Col>
-                    <Col  onClick={() => navigate('/orders')} xs={6} md={3} className='row-item d-flex flex-column py-3 align-items-center rounded-3 justify-content-center'>
+                    <Col  onClick={() => navigate('/set')} xs={6} md={3} className='row-item d-flex flex-column py-3 align-items-center rounded-3 justify-content-center'>
                         <img src={assets.icon_8} style={{
                             width: '90px'
                         }} />
@@ -30,7 +30,7 @@ const Hero = () => {
                         }} />
                         <p className='text-lg-center fs-2 text-uppercase fw-medium'>Khuyến mãi</p>
                     </Col>
-                    <Col  onClick={() => navigate('/store')} xs={6} md={3} className='row-item d-flex  py-3 flex-column align-items-center rounded-3 justify-content-center'>
+                    <Col  onClick={() => navigate('/parent')} xs={6} md={3} className='row-item d-flex  py-3 flex-column align-items-center rounded-3 justify-content-center'>
                         <img src={assets.icon_10} style={{
                             width: '90px'
                         }} />

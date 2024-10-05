@@ -63,7 +63,7 @@ const News = () => {
                                     objectFit: 'cover',
                                     padding: '10px'
                                 }} src={item.img} />
-                                <h2 className='text-left'
+                                <h2 className='text-left bg-transparent'
                                     style={{
                                         whiteSpace: 'nowrap',
                                         overflow: 'hidden',

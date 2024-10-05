@@ -23,7 +23,7 @@ const DiscountDetail = () => {
     }
   }, [blogId, blogs]);
   return blogData ? (
-    <div style={{ width: '100%', marginTop: '100px' }}>
+    <div style={{ width: '100%', marginTop: '800px' }}>
       <Container className='w-100'>
         <div className='w-100 d-flex justify-content-center'>
           <img src={blogData.img} width={'90%'} height={'400px'} />

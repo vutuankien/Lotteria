@@ -77,7 +77,9 @@ import septemberDiscount from './nsp_thang_9_1070x750px-01.jpg'
 import downloadApp from './tai_app_nhan_khoai_tay_1070x750px-01-01.jpg'
 import birthday from './tlj_1070x750px-01.jpg'
 import hotCake from './zalo_oa_b_nh_chi_n2-01.jpg'
+import team from './team.jpg'
 export const assets = {
+    team,
     septemberDiscount,
     downloadApp,
     birthday,

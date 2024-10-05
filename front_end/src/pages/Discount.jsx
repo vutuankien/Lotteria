@@ -8,7 +8,7 @@ const Discount = () => {
   const { blogs } = useContext(ShopContext);
 
   return (
-    <div style={{ marginTop: "100px", paddingTop: "140px" }}>
+    <div style={{ marginTop: "100px"}}>
       <Container>
         <Row className="w-100 d-flex  gap-5 justify-content-between">
           <Col className="d-flex gap-2 flex-lg-row flex-column" md={12} sm={12}>

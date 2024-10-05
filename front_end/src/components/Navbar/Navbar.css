@@ -1,11 +1,12 @@
-/* Sửa vị trí và z-index của Navbar */
+/* Sửa vị trí và z-index của Navbar
 .Navbar {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 9;
+  background-color: white;
   /* Đảm bảo navbar luôn ở trên cùng */
-}
+
 
 /* Đảm bảo phần nội dung không bị che */
 body,

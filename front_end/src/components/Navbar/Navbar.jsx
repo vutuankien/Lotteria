@@ -60,7 +60,7 @@ const NavBar = () => {
   return (
     <div>
       <Navbar
-        className="position-fixed top-0 start-0 end-0 bNavbar z-1 shadow d-flex justify-content-center align-content-center"
+        className="position-fixed top-0 start-0 end-0  z-3 bg-white shadow d-flex justify-content-center align-content-center"
         bg="light"
         data-bs-theme="dark"
       >

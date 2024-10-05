@@ -56,7 +56,7 @@ const SpecialProduct = () => {
                                     objectFit: 'cover',
                                     padding: '10px'
                                 }} src={item.image} />
-                                <h2 className='text-center'>{item.name}</h2>
+                                <h2 className='text-center bg-transparent fs-2'>{item.name}</h2>
                                 <div className='d-flex justify-content-around'>
                                     <p className='text-danger fs-3 fw-bold'>{item.price}.000{currency}</p>
                                     <p className='text-muted fs-5 text-decoration-line-through'>{item.oldPrice}.000{currency}</p>

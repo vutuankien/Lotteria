@@ -35,7 +35,7 @@ const RelatedProduct = ({ category }) => {
                         <p className='text-uppercase text-black fs-4 fw-bold'>Sản phẩm liên quan</p>
                     </div>
 
-                    <button className='shadow-lg' onClick={() => navigate(`/${category}`)}>Xem tất cả <Icon.ArrowRight></Icon.ArrowRight></button>
+                    <button className='shadow-lg rounded-5' onClick={() => navigate(`/${category}`)}>Xem tất cả <Icon.ArrowRight></Icon.ArrowRight></button>
 
                 </div>
 
@@ -56,7 +56,7 @@ const RelatedProduct = ({ category }) => {
                                         objectFit: 'cover',
                                         padding: '10px'
                                     }} src={item.image} />
-                                    <h2 className='text-center'>{item.name}</h2>
+                                    <h2 className='text-center bg-transparent'>{item.name}</h2>
                                     <div className='d-flex justify-content-around'>
                                         <p className='text-danger fs-3 fw-bold'>{item.price}.000{currency}</p>
                                         <p className='text-muted fs-5 text-decoration-line-through'>{item.oldPrice}.000{currency}</p>
