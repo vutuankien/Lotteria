@@ -1,0 +1,36 @@
+h2{
+    font-size: 20px;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+
+}
+h3{
+    font-size: 30px;
+    color: orangered;
+}
+.Bra-Sto p{
+    color: #000;
+}
+.Bra-Sto{
+  width: 100%;
+  align-items: center;
+}
+.Bra{
+    margin-top: 50px;
+    margin-right: 100px;
+    margin-left: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.Bra-Box{
+    display: flex;
+    padding-top: 20px;
+    margin: 20px;
+}
+.Box-img{
+    margin-left: 20px;
+} 
+.Box-text{
+    margin-left: 20px;
+}

@@ -1,0 +1,119 @@
+.store-search-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;  
+}
+
+.search-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  /* max-width: 600px; */
+  margin: 0 auto; /* Tự động tạo khoảng cách hai bên */
+}
+
+.search-input {
+  width: 100%; /* Đảm bảo ô nhập chiếm hết chiều rộng của container */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-width: 300px; /* Đặt chiều dài tối thiểu để ô nhập không bị quá hẹp */
+}
+
+
+/* CSS cho phần nhãn và ô nhập */
+label {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f00;
+  border-radius: 5px;
+}
+.store-map{
+  margin-left: 20px;
+  width: 80%;
+}
+.results-info {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  color: #333;
+}
+
+
+.map-and-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.map-container {
+  width: 60%;
+  height: 400px;
+}
+
+.list-container {
+  width: 100%;
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.store-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.store-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.see-more {
+  background-color: #ff4d4f;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  width: 50px;
+  height: 100px;
+}
+
+.see-more:hover {
+  background-color: #ff7875;
+}
+.store-info {
+  margin-bottom: 10px; /* Khoảng cách giữa các thông tin cửa hàng */
+}
+
+.store-name {
+  font-size: 20px; /* Kích thước chữ cho tên cửa hàng */
+  font-weight: bold; /* Chữ đậm cho tên */
+}
+
+.store-hours {
+  font-size: 15px; /* Kích thước chữ cho giờ mở cửa */
+  color: #cc1818; /* Màu chữ nhạt hơn */
+  margin-top: 5px; /* Khoảng cách phía trên */
+}
+
+.store-address {
+  font-size: 20px; /* Kích thước chữ cho địa chỉ */
+  color: #ee1a1a; /* Màu chữ tối hơn */
+}
