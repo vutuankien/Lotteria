@@ -9,30 +9,35 @@ function Login({ onLogin }) {
   const [isAdminMode, setIsAdminMode] = useState(false);
   const navigate = useNavigate();
 
-  const adminEmail = "nguyenthehung.2004hd@gmail.com"; // Email của admin
+  const adminEmail = "hongdang18092004@gmail.com"; // Email của admin
 
+  // Xử lý đăng nhập bằng email và mật khẩu
   // Xử lý đăng nhập bằng email và mật khẩu
   const handleEmailLogin = async (e) => {
     e.preventDefault();
     try {
-      // Nếu ở chế độ admin và email không phải của admin thì từ chối đăng nhập
-      if (isAdminMode && email !== adminEmail) {
-        alert("Bạn không có quyền truy cập vào chế độ admin.");
-        return;
-      }
-
       // Đăng nhập bình thường cho user hoặc admin
       const user = await loginWithEmail(email, password);
+
       if (user) {
         localStorage.setItem("userInfo", JSON.stringify(user)); // Lưu thông tin người dùng vào localStorage
         onLogin();
-        navigate("/");
+
+        // Nếu ở chế độ admin, chuyển hướng đến trang admin
+        if (isAdminMode && email === adminEmail) {
+          // Sử dụng window.location.href nếu bạn muốn điều hướng đến URL bên ngoài
+          window.location.href = "http://localhost:5174/admin";
+        } else {
+          navigate("/"); // Điều hướng đến trang người dùng
+        }
       }
     } catch (error) {
       console.error("Error logging in with email:", error);
     }
   };
 
+
+  // Xử lý đăng nhập bằng Google
   // Xử lý đăng nhập bằng Google
   const handleGoogleSignIn = async () => {
     try {
@@ -47,13 +52,20 @@ function Login({ onLogin }) {
         // Đăng nhập bình thường cho user hoặc admin
         localStorage.setItem("userInfo", JSON.stringify(user));
         onLogin();
-        navigate("/");
+
+        // Nếu ở chế độ admin, chuyển hướng đến trang admin
+        if (isAdminMode && user.email === adminEmail) {
+          window.location.href = "http://localhost:5174/admin"; // Chuyển đến trang admin
+        } else {
+          navigate("/"); // Điều hướng đến trang người dùng
+        }
       }
     } catch (error) {
       console.error("Google Sign-In Error:", error);
       alert("Đăng nhập bằng Google không thành công, vui lòng thử lại.");
     }
   };
+
 
   // Xử lý chuyển hướng đến trang quên mật khẩu
   const handleForgotPassword = () => {
