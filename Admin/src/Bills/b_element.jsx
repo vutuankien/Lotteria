@@ -24,6 +24,7 @@ const BElement = ({ bill, onUpdateStatus }) => {
     }
 
     const [productImages, setProductImages] = useState({});
+    const [productNames, setProductNames] = useState({});
     const [userInfo, setUserInfo] = useState(null);
     const [address, setAddress] = useState('');
 
@@ -38,6 +39,19 @@ const BElement = ({ bill, onUpdateStatus }) => {
             }
         }
         setProductImages(productImageMap);
+    };
+
+    const fetchProductNames = async () => {
+        const productNameMap = {};
+        for (let product of products) {
+            try {
+                const res = await axios.get(`http://localhost:5000/Foods/${product.productId}`);
+                productNameMap[product.productId] = res.data.name; // Giả sử tên sản phẩm nằm trong trường `name`
+            } catch (error) {
+                console.error(`Error fetching name for productId: ${product.productId}`, error);
+            }
+        }
+        setProductNames(productNameMap);
     };
 
     const fetchUserInfo = async () => {
@@ -63,6 +77,7 @@ const BElement = ({ bill, onUpdateStatus }) => {
     useEffect(() => {
         if (userId) {
             fetchProductImages();
+            fetchProductNames();
             fetchUserInfo();
             fetchDefaultAddress();
         } else {
@@ -86,7 +101,7 @@ const BElement = ({ bill, onUpdateStatus }) => {
                     return;
                 }
 
-                const response = await axios.put(`http://localhost:5000/Bills/${billId}`, {
+                await axios.put(`http://localhost:5000/Bills/${billId}`, {
                     ...billData,
                     status: "Shipped"
                 });
@@ -141,6 +156,8 @@ const BElement = ({ bill, onUpdateStatus }) => {
                                 alt={product.productId}
                                 style={{ width: '100px', height: '80px', objectFit: 'cover', borderRadius: '5px' }}
                             />
+                            {/* Hiển thị tên sản phẩm dưới ảnh */}
+                            <p className="mt-1">{productNames[product.productId] || 'Tên sản phẩm không xác định'}</p>
                         </Col>
                         <Col xs={6} className="text-center">
                             <span className="text-primary font-weight-bold">Quantity : </span>
