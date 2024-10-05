@@ -18,6 +18,7 @@ const NextStep = () => {
     setOrders,
     ordersAPI,
     navigate,
+    sendEmail
   } = useContext(ShopContext);
   const [swalProps, setSwalProps] = useState({});
   const [bill, setBill] = useState([]);
@@ -125,8 +126,7 @@ const NextStep = () => {
     }
 
 
-      // Hiển thị email
-      sendEmail()
+    sendEmail()
   };
 
   return (
