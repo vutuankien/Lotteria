@@ -407,7 +407,22 @@
       "subCategory": ""
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "0338",
+      "userId": "586f",
+      "products": [
+        {
+          "productId": "2",
+          "quantity": 1,
+          "price": 95
+        }
+      ],
+      "totalPrice": 95,
+      "time": "23:36:29 05/10/2024",
+      "status": "Shipping"
+    }
+  ],
   "Bills": [
     {
       "orderId": "f894",
@@ -440,20 +455,18 @@
       "id": "0491"
     },
     {
-      "0": {
-        "orderId": "56bc",
-        "userId": "586f",
-        "products": [
-          {
-            "productId": "1",
-            "quantity": 1,
-            "price": 87
-          }
-        ],
-        "totalPrice": 87,
-        "time": "12:58:38 05/10/2024",
-        "status": "Shipping"
-      },
+      "orderId": "56bc",
+      "userId": "586f",
+      "products": [
+        {
+          "productId": "1",
+          "quantity": 1,
+          "price": 87
+        }
+      ],
+      "totalPrice": 87,
+      "time": "12:58:38 05/10/2024",
+      "status": "Shipped",
       "id": "2161"
     },
     {
@@ -474,20 +487,18 @@
       "id": "10d7"
     },
     {
-      "0": {
-        "orderId": "21fe",
-        "userId": "586f",
-        "products": [
-          {
-            "productId": "50",
-            "quantity": 1,
-            "price": 400
-          }
-        ],
-        "totalPrice": 400,
-        "time": "14:10:59 05/10/2024",
-        "status": "Shipping"
-      },
+      "orderId": "21fe",
+      "userId": "586f",
+      "products": [
+        {
+          "productId": "50",
+          "quantity": 1,
+          "price": 400
+        }
+      ],
+      "totalPrice": 400,
+      "time": "14:10:59 05/10/2024",
+      "status": "Shipped",
       "id": "efb5"
     },
     {

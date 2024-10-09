@@ -21,7 +21,7 @@ const Searchbar = () => {
         // Lấy dữ liệu sản phẩm từ API
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/Foods');
+                const response = await axios.get('http://localhost:5000/Foods');
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error fetching products:', error);
