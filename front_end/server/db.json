@@ -407,22 +407,7 @@
       "subCategory": ""
     }
   ],
-  "orders": [
-    {
-      "id": "0338",
-      "userId": "586f",
-      "products": [
-        {
-          "productId": "2",
-          "quantity": 1,
-          "price": 95
-        }
-      ],
-      "totalPrice": 95,
-      "time": "23:36:29 05/10/2024",
-      "status": "Shipping"
-    }
-  ],
+  "orders": [],
   "Bills": [
     {
       "orderId": "f894",
@@ -602,6 +587,28 @@
         "status": "Shipping"
       },
       "id": "a7fb"
+    },
+    {
+      "0": {
+        "orderId": "da5e",
+        "userId": "671a",
+        "products": [
+          {
+            "productId": "1",
+            "quantity": 1,
+            "price": 87
+          },
+          {
+            "productId": "2",
+            "quantity": 2,
+            "price": 95
+          }
+        ],
+        "totalPrice": 277,
+        "time": "16:08:41 09/10/2024",
+        "status": "Shipping"
+      },
+      "id": "b1f2"
     }
   ],
   "UsersAccount": [
@@ -710,6 +717,13 @@
       "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJS9aeQ3as26GIHRaM49IUu_vsRmk3XTl1ebHTH6dvHFEFturc=s96-c",
       "phone": "0862992163",
       "dob": "2004-09-18"
+    },
+    {
+      "id": "671a",
+      "fullName": "kiên vũ",
+      "email": "vutuankien030904@gmail.com",
+      "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJPnF6Dnx_ILdYrYwc_29IYEvZFePa6BOrQKxCzn8OtV3cDLdo=s96-c",
+      "phone": "0965679404"
     }
   ],
   "address": [
@@ -757,6 +771,15 @@
       "isDefault": false,
       "userId": "586f",
       "email": "hongdang18092004@gmail.com"
+    },
+    {
+      "id": "096f",
+      "addressName": "Nhà",
+      "address": "Yên nghĩa",
+      "note": "none",
+      "isDefault": false,
+      "userId": "671a",
+      "email": "vutuankien030904@gmail.com"
     }
   ],
   "feedbacks": [],

@@ -36,7 +36,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .form-group input {
@@ -66,10 +66,12 @@ textarea {
 .buttons {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 15px;
+  position: relative;
 }
 
 .submit-btn {
+  position: absolute;
   background-color: #f04d56;
   color: white;
   padding: 10px 20px;
